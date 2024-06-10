@@ -1,4 +1,4 @@
-<zk>
+<zk xmlns="http://www.zkoss.org/2005/zul">
     <script src="http://localhost:50000/socket.io/socket.io.js"/>
     <script src="http://localhost:50000/zklessLiveReloadStyles.js"/>
     <!--	<script src="http://localhost:50000/zklessLiveReloadStylesResize.js"/>-->
@@ -17,6 +17,8 @@
                 <row>
                     Buttons
                     <div>
+                        <a href="home.zul" sclass="btn btn-orion">Grit home</a>
+                        <a href="list.zul" sclass="btn btn-orion">Grit list</a>
                         <button label="Button"/>
                         <button iconSclass="z-icon-save"/>
                         <button label="Icon" iconSclass="z-icon-times"/>

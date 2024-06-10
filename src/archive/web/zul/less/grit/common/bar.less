@@ -1,0 +1,78 @@
+@import "_variables.less";
+@import "../_functions.less";
+
+/* coloured bar styles */
+
+div.barContainer {
+
+    min-width: @PAGE_MIN_WIDTH;
+    width: @WRAPPER_WIDTH;
+    margin: 0 auto;
+
+    div.colouredBar {
+        width: 100%;
+        font-weight: bold;
+//         height: 34px;
+        padding: 10px 10px;
+        border-radius: 5px;
+        margin: 3px 0;
+        box-sizing: border-box;
+
+        div.colouredBar_wrapper {
+            text-align: right;
+            padding-left: 5px;
+            /*z-index: 10;*/
+
+            .z-label {
+                margin-right: 50px;
+                float: left;
+            }
+
+            a {
+                color: inherit;
+                /*text-decoration: none;*/
+                /*float: right;*/
+                box-shadow: none;
+                text-shadow: none;
+                padding: 0px;
+                margin-left: 25px;
+                font-weight: bold;
+                text-transform: uppercase;
+
+                &:hover {
+                    background: inherit;
+                }
+
+                &.bar-close-btn {
+                    .bar-close-text {
+                        display: none;
+                    }
+
+                    .bar-close-icon {
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+
+        &.outageBox {
+            background-color: @colorRed;
+            color: white;
+        }
+
+        &.infoBox {
+            background-color: @colorDarkGreen;
+            color: white;
+        }
+
+        &.warningBox {
+            background-color: @colorOrange;
+            color: white;
+        }
+
+        &.outageCheckBox {
+            background-color: black;
+            color: white;
+        }
+    }
+}

@@ -1,0 +1,31 @@
+@import "_variables.less";
+@import "../_functions.less";
+
+.breadcrumb-line {
+    font-size: 13px;
+
+    ul.breadcrumb {
+        margin: 0px;
+        padding: 0px;
+        white-space: nowrap;
+        vertical-align: middle;
+        display: inline;
+
+        li {
+            &, a {
+                display: inline;
+                color: @menuColor;
+                text-decoration: none;
+            }
+            
+            a:hover {
+                color: @submenuHoverColor;
+            }
+        }
+    }
+}
+
+span.page-title.instead-of-menu {
+    float: right; 
+    padding: 15px;
+}

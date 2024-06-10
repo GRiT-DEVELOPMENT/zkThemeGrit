@@ -1,0 +1,361 @@
+@import "_variables.less";
+@import "../_functions.less";
+
+/* prepsani tematu ZK */
+.z-row .z-detail-outer + td, .z-row .z-detail-inner:first-child {
+    border-left: none;
+}
+.z-row .z-detail-outer {
+    background: none;
+    border-width: 0px;
+    border-style: none;
+    padding: 6px 7px;
+}
+.z-detail {
+    border: none;
+    background: none;
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    line-height: 16px;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+}
+.z-detail-icon {
+    font-size: 18px;
+    color: rgba(0,0,0,0.9);
+    position: relative;
+    left: 1px;
+}
+/* konec prepsani tematu ZK */
+
+div {
+    &.allow-overflow {
+        &, .z-grid-body {
+            overflow: visible;
+            overflow-x: visible;
+            overflow-y: visible;
+        }
+    }
+
+    &.z-grid, &.z-grid-body { /* Reseni overflow kvuli dropdown vyberu akci */
+        overflow: visible !important;
+    }
+
+    &.z-grid-body tr.z-row {
+        height: 28px;
+    }
+}
+
+.grid-container {
+    background: @gridContainerBackground;
+    .borderRadius(@standardBorderRadius);
+
+    .grid-paging {
+        top: 11px;
+        left: 240px;
+        z-index: 1;
+        position: relative;
+        line-height: 0px;
+        height: 0px;
+        width: 250px;
+
+        .grid-paging-size {
+            width: 50px;
+        }
+    }
+}
+
+.filter-like-container {
+    background: @bodyBackground;
+    .borderRadius(@standardBorderRadius);
+    padding: @standardDivMargin;
+}
+
+.content-middle {
+
+    .inner-background-cell {
+        padding: @standardInnerDivPadding;
+        .borderRadius(@standardBorderRadius);
+        background: @gridContainerBackground;
+    }
+
+    .filter-background-cell {
+        padding: @standardInnerDivPadding;
+        .borderRadius(@standardBorderRadius);
+        background: @bodyBackground;
+    }
+
+    .grid-container {
+        padding: @standardInnerDivPadding;
+        margin-top: @standardDivMargin;
+
+        &.grid-under-title {
+            margin-top: 0px;
+        }
+
+        &.grid-bottom-space {
+            margin-bottom: @standardDivMargin;
+        }
+    }
+}
+
+.ssccSettings .content-middle .grid-container {
+    margin-top: 0px;
+}
+
+.userSettingsTable td{
+    padding: 0px 5px 5px 0px;
+}
+
+.substitutGrBox {
+    padding: 25px 15px 15px 0px;
+    background: #f6f6f6;
+}
+
+.managedSubstitutGrBox {
+    padding: 8px 15px 15px 0px;
+    background: #f6f6f6;
+}
+
+.errorLabel {
+    color: red;
+}
+
+.z-label.lbl-money-nowrap {
+    display: block;
+    width: 100%;
+    text-align: right;
+    white-space: nowrap;
+}
+
+div.dashboard-empty-div {
+    text-align: center;
+    font-size: 18px;
+    color: #909090;
+    width: 100%;
+    padding: 50px 0;
+    border: 1px solid #cfcfcf;
+    border-width: 1px 0;
+
+    a.z-a {
+        font-size: 18px;
+        color: #909090;
+    }
+}
+
+.z-bandpopup .z-paging {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px; 
+}
+
+div.gray-list-grid tr.z-row {
+    td.z-row-inner, td.z-cell {
+        padding: 8px 10px;
+    }
+}
+
+.grid-header-divider {
+    border-left: #777777 1px solid;
+}
+
+.grid-data-divider {
+    border-left: #e6ecf4 1px solid;
+}
+.grouped-listbox {
+    .z-listbox-odd .z-listcell {
+        background: inherit;
+    }
+    .z-listgroup .z-listcell {
+        background: #F7F7F7; /* @meshStripeBackgroundColor v tematu */
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.z-detail-content {
+    .z-row .z-row-inner, .z-row .z-cell, .z-column {
+        &:last-child {
+            padding-right: 0;
+        }
+    }
+}
+
+.white_space_pre {
+    white-space: pre;
+}
+
+.overview-highlight {
+    background-color: #e6ecf4;
+
+    &.z-groupbox-notitle .z-groupbox-content {
+        border-top: none;
+    }
+}
+
+.overview-notitle {
+    padding: 5px 15px 15px 15px;
+
+    &.z-groupbox-notitle .z-groupbox-content {
+        border-top: none;
+        padding-top: 15px;
+
+        .z-label.caption-label {
+            display: block;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+    }
+}
+
+.manual-services-container {
+
+    .z-hlayout, .z-hlayout .z-hlayout-inner,  {
+        height: 100%;
+    }
+
+    .manual-container {
+        height: 100%;
+        padding: 0 15px;
+
+        .article-download, .linkInstructions, .linkServices {
+            background-image: url('../../img/facelift/arrow_right.png');
+            background-repeat: no-repeat;
+            background-size: 5px;
+            background-position-y: center;
+            background-position-x: 3px;
+            padding-left: 15px;
+            list-style: none;
+            line-height: 24px;
+        }
+
+        .z-a {
+            &:hover, &:active, &:focus {
+                color: #f68121;
+            }
+        }
+    }
+}
+
+.overview-header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    font-weight: bold;
+    padding: 10px;
+
+    .overview-header-left {
+        text-align: right;
+    }
+
+    .overview-header-center {
+        text-align: center;
+    }
+
+    .overview-header-right {
+        text-align: left;
+    }
+
+    .z-label {
+        font-size: 14px;
+
+        &.overview-header-label {
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 14px;
+        }
+    }
+}
+
+.overview-link-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+
+    .overview-link-with-description {
+        text-decoration: none;
+    //     color: black;
+        font-weight: bold;
+        font-size: 18px;
+        display: inline-block;
+        padding: 10px 15px;
+    //     border: 1px solid gray;
+        border-radius: 10px;
+    //     background: #e5e5e5;
+        width: auto;
+        text-align: left;
+        margin: 3px 1px;
+        white-space: normal;
+
+        &:hover, &:active, &:focus {
+            color: #f68121;
+        }
+
+        i {
+            position: absolute;
+            font-size: 25px;
+        }
+
+        .z-label {
+            font-size: 18px;
+            font-weight: bold;
+            margin-left: 40px;
+            display: block;
+
+            &.link-desc-row {
+                margin-top: 5px;
+                font-size: 12px;
+                font-weight: normal;
+            }
+        }
+    }
+
+    .settings-headline {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row: 1;
+        text-align: center;
+        text-transform: uppercase;
+        background: lightgray;
+        padding: 10px;
+
+        .z-label {
+            font-weight: bold;
+            font-size: 14px;
+        }
+    }
+}
+
+.z-grid .z-row .billing-request-state {
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding: 3px 5px;
+}
+
+.alter-ego-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+
+    > .z-label {
+
+        &.heading {
+            font-weight: bold;
+        }
+
+        display: inline-block;
+        padding: 8px 10px;
+    }
+}
+/* zmena tematu */

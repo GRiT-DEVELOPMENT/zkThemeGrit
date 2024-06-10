@@ -1,0 +1,544 @@
+@import "_variables.less";
+@import "../_functions.less";
+
+/* BTN styles */
+.btn {
+    /* prepsat z bootstrapu */
+    text-shadow: none;
+    background: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    font-family: Arial, sans-serif;
+
+    line-height: 18px;
+    height: 18px;
+    white-space: nowrap;
+
+    &:hover, &:focus, &:active, &.active, &.disabled, &[disabled], &.btn-orion-used:hover, &.btn-orion-used:active {
+        text-shadow: none;
+    }
+
+    &.btn-orion-used {
+        /* Netscape */
+        -moz-opacity: 0.5;
+        /* Safari 1.x */
+        -khtml-opacity: 0.5;
+        /* Good browsers */
+        opacity: 0.5;
+    }
+
+    &:hover, &:focus {
+        color: #ffffff;
+        text-decoration: none;
+        background-position: 0 0;
+    }
+
+    &-orion {
+        background: @btnOrionBackground;
+        color: @btnOrionColor;
+        border-radius: @standardBorderRadius;
+        height: auto;
+        font-weight: bold;
+        font-size: 11px;
+        padding: 5px 13px;
+        .boxShadow(1px 1px 4px 2px rgba(0, 0, 0, 0.2));
+        transition: all 0.5s;
+        border: 1px solid transparent;
+
+        &:hover, &:focus, &:active, &.active {
+            color: @btnOrionColor;
+            background-color: @btnOrionHoverBackground;
+        }
+
+        &.disabled, &[disabled], &.disabled, &[disabled] {
+            color: @btnDisabledColor;
+            background: @btnDisabledBackground;
+            border: @btnDisabledBoder;
+            cursor: default;
+
+            .btn-text {
+                color: @btnDisabledColor;
+            }
+
+            &:hover, &:focus, &:active, &.active {
+                color: @btnDisabledColor;
+                background: @btnDisabledBackground;
+                border: @btnDisabledBoder;
+                cursor: default;
+
+                .btn-text {
+                    color: @btnDisabledColor;
+                }
+            }
+        }
+
+        &-grey {
+            background-color: @colorDarkGray;
+
+            .btn-text {
+                color:#ffffff;
+            }
+
+            &:hover, &:focus, &:active, &.active {
+                color: #ffffff;
+                background-color: #888888;
+            }
+        }
+
+        &-blue {
+            background: @btnBlueBackground;
+
+            &:hover, &:focus, &:active, &.active {
+                background-color: @btnOrionHoverBackground;
+                transition: all 0.5s;
+
+                .btn-text {
+                    color: @btnOrionColor;
+                }
+            }
+        }
+
+        &-red {
+            background-color: #EC2020;
+            color:#ffffff;
+
+            &:hover,
+                &:focus,
+                &:active,
+                &.active,
+                &.disabled,
+                &[disabled] {
+                color: #ffffff;
+                background-color: #F23434;
+            }
+        }
+
+        &-green {
+            background-color: #62C462;
+            color:#ffffff;
+
+            &:hover, &:focus, &:active, &.active {
+                color: #dddddd !important;
+                background-color: #62C462;
+            }
+        }
+
+        &-white {
+            background: white;
+            color: @btnBlueBackground;
+
+            &:hover, &:focus, &:active, &.active {
+                background-color: @btnBlueBackground;
+                transition: all 0.5s;
+
+                .btn-text {
+                    color: white;
+                }
+            }
+        }
+
+        &-big {
+            width: 170px;
+            white-space: nowrap;
+            box-sizing: content-box;
+            padding: 10px 15px;
+
+            .icon-large, &.btn-large .icon-large {
+                font-size: 20px;
+            }
+
+            .btn-text, &.btn-large .btn-text {
+                width: 100%;
+                vertical-align: middle;
+                line-height: inherit;
+                font-size: 14px;
+                white-space: pre-line;
+                display: table-cell;
+                height: 36px;
+                text-transform: uppercase;
+                font-weight: bold;
+                text-align: left;
+                padding-left: 15px;
+                text-shadow: none;
+            }
+        }
+
+        &-back {
+            margin-right: 15px;
+            padding: 2px 10px 2px 20px;
+            outline: none;
+            border: 1px solid @menuColor;
+            .boxShadow(none);
+
+            &-nav {
+                margin-right: 0px;
+            }
+
+            &, &:active, &:focus {
+                background-color: @menuBackground;
+                background-image: '~./zul/img/facelift/arrow_back.png';
+            }
+
+            &:hover {
+                background-color: @menuHoverBackground;
+                background-image: '~./zul/img/facelift/arrow_back_active.png';
+
+                .btn-text {
+                    color: @menuHoverColor;
+                }
+            }
+
+            &, &:hover, &:active, &:focus {
+                background-repeat: no-repeat;
+                background-size: 6px 8px;
+                background-position-x: 10px;
+                background-position-y: center;
+                transition: all 0.5s;
+            }
+
+            .icon-arrow-left {
+                display: none;
+            }
+
+            .btn-text {
+                font-size: 10px;
+                color: @menuColor;
+                text-transform: uppercase;
+            }
+        }
+
+        &-more {
+            margin-right: 15px;
+            padding: 1px 10px 1px 10px;
+            outline: none;
+            border: 1px solid @menuColor;
+            .boxShadow(none);
+
+            &, &:active, &:focus {
+                background-color: @menuBackground;
+            }
+
+            &:hover {
+                background-color: @menuHoverBackground;
+            }
+
+            .btn-text {
+                font-size: 10px;
+                font-weight: bold;
+                color: @menuColor;
+                text-transform: uppercase;
+            }
+
+            &:hover .btn-text {
+                color: @menuHoverColor;
+            }
+        }
+
+        &-save-big {
+            width: 150px;
+            height: 40px;
+            font-size: 14px;
+            font-weight: bold;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+
+        &-filter {
+            padding: 5px 25px;
+            background: @filterBtnBackground;
+
+            .icon-search {
+                display: none;
+            }
+
+            .btn-text {
+                margin: 0px;
+                font-size: 12px;
+                text-transform: uppercase;
+            }
+
+            &:hover, &:active {
+                background: @filterBtnHoverBackground;
+                transition: all 0.5s;
+            }
+        }
+
+        &-duplicity {
+            padding: 5px 5px 5px 20px;
+            margin-left: 15px;
+            transition: all 0.5s;
+            box-shadow: none;
+
+            .btn-text {
+                color: @menuColor;
+            }
+
+            &, &:focus {
+                .leftBackgroundImage(@trashImage, 11px, 11px);
+                .boxShadow(none);
+            }
+
+            &:hover, &:active {
+                .leftBackgroundImage(@trashHoverImage, 11px, 11px);
+                .boxShadow(none);
+                transition: all 0.5s;
+
+                .btn-text {
+                    color: @submenuHoverColor;
+                }
+            }
+
+            .btn-text {
+                margin: 0px;
+                font-size: 11px;
+                font-weight: bold;
+            }
+        }
+    }
+
+    &-text {
+        color: @btnBlueColor;
+        display: inline-block;
+        /*    vertical-align: middle;*/
+        white-space: nowrap;
+        zoom: 1;
+        *display: inline;
+        font-weight: bold;
+    }
+
+    &-helper {
+        display: inline;
+        vertical-align: middle;
+        height:100%;
+        zoom: 1;
+        *display: inline;
+    }
+
+    &-combo {
+        background: @btnBlueBackground;
+        color: @btnBlueColor;
+
+        &:hover {
+            background: @btnBlueHoverBackground;
+            color: @btnBlueHoverColor;
+        }
+
+        &:active {
+            background: @btnBlueActiveBackground;
+            color: @btnBlueHoverColor;
+        }
+    }
+
+    &-large {
+
+        .z-span, .z-label {
+            font-size: 14px;
+        }
+
+        .icon-large {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .btn-text {
+            padding-left: 5px;
+            font-weight: normal;
+        }
+
+        &.btn-logout {
+            float: right; 
+            margin: 7px 0;
+            padding: 10px 15px;
+
+            .btn-text {
+                font-weight: bold;
+            }
+        }
+    }
+
+    &-xlarge {
+        padding: 25px 28px;
+        font-size: 24px;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        border-radius: 8px;
+
+        [class^="icon-"],
+        [class*=" icon-"] {
+            margin-top: 6px;
+        }
+
+        .z-span, .z-label {
+            font-size: 20px;
+        }
+
+        &.btn .btn-text {
+            padding-left: 5px;
+        }
+    }
+
+    &-add-row {
+        background: @gridAddRowImage;
+
+        &[disabled], &[disabled]:hover {
+            background: @gridAddRowDisabledImage;
+            cursor: default;
+        }
+
+        &:hover {
+            background: @gridAddRowHoverImage;
+        }
+    }
+
+    &-remove-row {
+        background: @gridDeleteRowImage;
+
+        &[disabled], &[disabled]:hover {
+            background: @gridDeleteRowDisabledImage;
+            cursor: default;
+        }
+
+        &:hover {
+            background: @gridDeleteRowHoverImage;
+        }
+    }
+
+    &-add-row, &-remove-row {
+        width: 24px;
+        height: 24px;
+        display: inline-block;
+        border-radius: 5px;
+        cursor: pointer;
+        vertical-align: middle;
+        padding: 0;
+        opacity: 1;
+
+        &, &:hover, &[disabled], &[disabled]:hover {
+            background-repeat: no-repeat;
+            background-size: 24px;
+            background-position-x: center;
+            background-position-y: center;
+            transition: all 0.5s;
+        }
+
+        i {
+            display: none;
+        }
+    }
+
+    &-edit-row, &-move-row {
+        width: 24px;
+        height: 24px;
+
+        &:hover, &:active, &:focus {
+            background-color: transparent;
+            color: @btnBlueHoverBackground;
+        }
+
+        i {
+            font-size: 16px;
+            vertical-align: middle;
+        }
+    }
+}
+
+.btn, .btn-combo, .z-button-os {
+    position: relative;
+    /*border: 1px solid #888;*/
+}
+
+
+/* bootstrap modification */
+
+.btn-mini {
+    box-sizing: content-box;
+}
+
+.btn-group > .btn,
+.btn-group > .dropdown-menu,
+.btn-group > .popover {
+    font-size: 12px;
+}
+
+.btn-group {
+    .btn-combo.dropdown-toggle {
+        border-radius: 5px;
+    }
+
+    &.open .btn.dropdown-toggle {
+        background-color: @btnBlueActiveBackground;
+    }
+
+    .btn.btn-orion.dropdown-arrow {
+
+        &:hover, &:focus {
+            color: @btnOrionColor !important;
+            background-color: @btnOrionHoverBackground !important;
+        }
+    }
+}
+
+.ico-stack {
+    &-container {
+        position: relative;
+        width: 1em;
+        height: 1em;
+        display: inline-block;
+        text-align: left;
+        vertical-align: middle;
+        bottom: 1px;
+        right: 3px;
+    }
+
+    &-base {
+        position: absolute;
+        width: 1em;
+        height: 1em;
+        text-align: center;
+    }
+
+    &-front {
+        position: absolute;
+        bottom: -0.5em;
+        right: -0.3em;
+        font-size: smaller;
+    }
+}
+
+.btn.action-btn span.ico-stack-container {
+    bottom: 1px;
+    right: 0;
+}
+
+.dropdown-menu {
+    background: @menuHoverBackground;
+    color: @submenuColor;
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus,
+.dropdown-submenu:hover > a,
+.dropdown-submenu:focus > a {
+    text-decoration: none;
+    color: @submenuHoverColor;
+    background-color: @menuHoverBackground;
+    background-image: @submenuHoverBackgroundImage;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 10px;
+}
+
+.dropdown-menu > li > a,
+.dropdown-submenu > a {
+    text-decoration: none;
+    color: @submenuColor;
+    background-color: @menuHoverBackground;
+    background-image: @submenuBackgroundImage;
+    background-size: @submenuBackgroundWidth @submenuBackgroundHeight;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 10px;
+}

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteRepositoriesConfiguration">
+    <remote-repository>
+      <option name="id" value="ZK PE EE Evaluation" />
+      <option name="name" value="ZK PE EE Evaluation" />
+      <option name="url" value="https://mavensync.zkoss.org/eval/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="reflections-repo" />
+      <option name="name" value="Reflections Maven2 Repository" />
+      <option name="url" value="http://reflections.googlecode.com/svn/repo" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven-restlet" />
+      <option name="name" value="Public online Restlet repository" />
+      <option name="url" value="http://maven.restlet.org" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="mavenCentral" />
+      <option name="name" value="mavenCentral" />
+      <option name="url" value="https://repo1.maven.org/maven2/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="https://repo.maven.apache.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="ZK CE" />
+      <option name="name" value="ZK CE" />
+      <option name="url" value="https://mavensync.zkoss.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="ZK CE" />
+      <option name="name" value="ZK CE Repository" />
+      <option name="url" value="https://mavensync.zkoss.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Maven Central repository" />
+      <option name="url" value="https://repo1.maven.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="ZK EE" />
+      <option name="name" value="ZK EE" />
+      <option name="url" value="https://maven.zkoss.org/repo/zk/ee" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jboss.community" />
+      <option name="name" value="JBoss Community repository" />
+      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Maven Repository Switchboard" />
+      <option name="url" value="https://repo1.maven.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="ccv-release" />
+      <option name="name" value="ccv-release" />
+      <option name="url" value="https://nexus.dev.orion.grit.cz:8081/repository/ccv/" />
+    </remote-repository>
+  </component>
+</project>

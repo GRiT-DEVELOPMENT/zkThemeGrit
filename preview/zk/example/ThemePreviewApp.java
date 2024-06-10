@@ -7,8 +7,8 @@ import org.zkoss.lang.Library;
 @SpringBootApplication
 public class ThemePreviewApp {
     public static void main(String[] args) {
-        System.setProperty("zk.homepage", "preview");
-        Library.setProperty("org.zkoss.theme.preferred", "___THEME_NAME___");
+        System.setProperty("zk.homepage", "main");
+        Library.setProperty("org.zkoss.theme.preferred", "zk10theme");
         //disable caches for development
         Library.setProperty("org.zkoss.zk.ZUML.cache", "false");
         Library.setProperty("org.zkoss.zk.WPD.cache", "false");

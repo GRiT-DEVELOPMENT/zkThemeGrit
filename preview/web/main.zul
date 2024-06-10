@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c" ?>
+<?page docType="html" id="layoutPage" ?>
+<?meta http-equiv="x-ua-compatible" content="IE=edge" ?>
+<?meta name="robots" content="noindex" ?>
+<zk xmlns="http://www.zkoss.org/2005/zul" xmlns:n="native" xmlns:c="client" xmlns:h="xhtml">
+    <script>
+        zk.afterMount(function()
+        {
+        //hideMenuOnClick();
+
+        // pridavani a odebirani CSS tridy pri focusu
+        $('input').on('blur', function () {
+        $(this).removeClass('focus');
+        }).on('focus', function () {
+        $(this).addClass('focus');
+        });
+        });
+    </script>
+    <div id="divContainer">
+        <n:div class="header" style="z-index: 10">
+            <div class="header_wrapper">
+                <zk xmlns="http://www.zkoss.org/2005/zul" xmlns:n="native" xmlns:h="xhtml">
+                    <div id="headerContainer">
+                        <a id="logoHref" href="#home" class="logo" tooltiptext="Homepage">
+                            <image id="logoImg" src="/img/logoOrion.png" style="max-height: 40px;"/>
+                        </a>
+                        <bandbox/>
+
+                        <!-- MAIN MENU -->
+                        <include mode="instant" src="~./menu.zul"/>
+                    </div>
+                </zk>
+            </div>
+        </n:div>
+        <div class="side-container" id="helpDiv" visible="false">
+            <div class="rotated-text">
+                <n:i class="icon-question-sign"/>
+                <n:span class="rotated-text__inner">Pomůžeme Vám</n:span>
+            </div>
+        </div>
+
+        <div class="side-container2" id="introDiv" visible="false">
+            <div class="rotated-text">
+                <n:i class="icon-play-sign"/>
+            </div>
+        </div>
+        <div class="barContainer">
+            <div id="outageCheckBox" class="colouredBar outageCheckBox">
+                <div class="colouredBar_wrapper">
+                    <n:i class="icon-minus-sign icon-large" style="color:red;"></n:i>
+                    <label id="outageCheckLbl" visible="true" style="padding-left:20px;"
+                           value="Režim kontroly po patchi - uživatelé nemají přístup"/>
+                </div>
+            </div>
+            <div id="outageBox" class="colouredBar outageBox">
+                <div class="colouredBar_wrapper">
+                    <label id="outageLbl" visible="true" value="Výpadek systemu"/>
+                    <a id="removeOutage" tooltiptext="Tuto informaci už nezobrazovat">Zrušit</a>
+                </div>
+            </div>
+            <div id="substituteBox" class="colouredBar warningBox">
+                <div class="colouredBar_wrapper">
+                    <label id="substituteLbl" visible="true" value="Varování systému"/>
+                    <a id="removeSubstitute" tooltiptext="Tuto informaci už nezobrazovat">Zrušit</a>
+                </div>
+            </div>
+            <div id="articleBarSpace"/>
+        </div>
+        <div id="notificationContainer" class="notificationContainer"></div>
+        <n:div class="wrapper">
+            <n:div class="content_wrapper">
+                <zk xmlns="http://www.zkoss.org/2005/zul" xmlns:n="native" xmlns:c="client" xmlns:h="xhtml">
+                    <window>
+                        <div sclass="content-top">
+                            <div class="breadcrumb-line">
+                                <a id="backButton" sclass="btn-orion-grey btn-orion-back">
+                                    <span class="icon-arrow-left icon-space-right" xmlns="zul"></span>
+                                    <label value="Zpět" class="btn-text"/>
+                                    <span xmlns="zul" class="btn-helper"></span>
+                                </a>
+                                <h:ul id="breadcrumbUl" class="breadcrumb">
+                                    <n:li>
+                                        Prodej
+                                        <n:span>></n:span>
+                                    </n:li>
+                                    <n:li>
+                                        <n:strong>Příchozí objednávky</n:strong>
+                                    </n:li>
+                                </h:ul>
+                            </div>
+                        </div>
+                        <div sclass="content-middle">
+                            <div class="container">
+                                <div class="left">
+                                    <div id="pageTitleDiv" class="page-title">Příchozí objednávky</div>
+                                </div>
+                                <div class="right">
+                                    <hbox>
+                                    </hbox>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div id="filterDiv" sclass="filter eventFilter">
+                                <n:table>
+                                    <n:tr>
+                                        <n:td>
+                                            <div>
+                                                <label value="Rychlý filtr"/>
+                                                <combobox id="vysledekCb"/>
+                                            </div>
+                                        </n:td>
+                                        <n:td>
+                                            <div>
+                                                <label value="Číslo dokladu"/>
+                                                <textbox id="cisloDokladuTb"/>
+                                            </div>
+                                        </n:td>
+                                        <n:td>
+                                            <div>
+                                                <label value="Odběratel"/>
+                                                <bandbox id="kodOdberateleACB"/>
+                                            </div>
+                                        </n:td>
+                                        <n:td>
+                                            <div>
+                                                <label value="Období"/>
+                                                <combobox id="quickPeriodSelectCb"/>
+                                            </div>
+                                        </n:td>
+                                        <n:td>
+                                            <div>
+                                                <label value="Datum vytvoření"/>
+                                                <div>
+                                                    <datebox id="dateQuickPeriodFromDb" sclass="quickFilter"/>
+                                                    <n:span class="date-separator">-</n:span>
+                                                    <datebox id="dateQuickPeriodToDb" sclass="quickFilter"/>
+                                                </div>
+                                            </div>
+                                        </n:td>
+                                    </n:tr>
+                                </n:table>
+                                <div id="extendedFilter" visible="false"
+                                     action="show: slideDown({duration: 300}); hide: slideUp({duration: 300})">
+                                    <n:table>
+                                        <n:tr>
+                                            <n:td>
+                                                <div>
+                                                    <label value="Stav zprávy"/>
+                                                    <combobox id="stavZpravyCb"/>
+                                                </div>
+                                            </n:td>
+                                            <n:td>
+                                                <div>
+                                                    <label value="Místo dodání"/>
+                                                    <bandbox id="kodMistaDodaniACB"/>
+                                                </div>
+                                            </n:td>
+                                            <n:td>
+                                                <div>
+                                                    <label value="Distribuční sklad"/>
+                                                    <textbox id="eanDistSkladuTb"/>
+                                                </div>
+                                            </n:td>
+                                            <n:td>
+                                                <div>
+                                                    <label value="Odesílatel"/>
+                                                    <bandbox id="odesilatelACB"/>
+                                                </div>
+                                            </n:td>
+                                            <n:td>
+                                                <div>
+                                                    <label value="Datum vystavenní"/>
+                                                    <div>
+                                                        <datebox id="datumVystaveniOdDb"/>
+                                                        <n:span class="date-separator">-</n:span>
+                                                        <datebox id="datumVystaveniDoDb"/>
+                                                    </div>
+                                                </div>
+                                            </n:td>
+                                        </n:tr>
+                                        <n:tr>
+                                            <n:td>
+                                                <div>
+                                                    <label value="Přečteno"/>
+                                                    <combobox id="prectenaCb"/>
+                                                </div>
+                                            </n:td>
+                                            <n:td>
+                                                <div>
+                                                    <label value="Komentář"/>
+                                                    <combobox id="komentarCb"/>
+                                                </div>
+                                            </n:td>
+                                            <n:td>
+                                                <div>
+                                                    <label value="Poznámka"/>
+                                                    <textbox id="poznamkaTb"/>
+                                                </div>
+                                            </n:td>
+                                            <n:td></n:td>
+                                            <n:td>
+                                                <div>
+                                                    <label value="Datum dodání"/>
+                                                    <div>
+                                                        <datebox id="datumDodaniOdDb"/>
+                                                        <n:span class="date-separator">-</n:span>
+                                                        <datebox id="datumDodaniDoDb"/>
+                                                    </div>
+                                                </div>
+                                            </n:td>
+                                        </n:tr>
+                                    </n:table>
+                                </div>
+                                <div class="action">
+                                    <div class="action-buttons">
+                                        <a id="filterBtn" sclass="btn-orion-filter">
+                                            <span class="icon-search icon-space-right" xmlns="zul"></span>
+                                            <label value="Filtrovat" class="btn-text"/>
+                                            <span xmlns="zul" class="btn-helper"></span>
+                                        </a>
+                                        <space/>
+                                        <a id="deleteFilterBtn" sclass="btn-orion-grey btn-orion-cancel">
+                                            <span class="icon-ban-circle icon-space-right" xmlns="zul"></span>
+                                            <label value="Vymazat" class="btn-text"/>
+                                            <span xmlns="zul" class="btn-helper"></span>
+                                        </a>
+                                    </div>
+                                    <div class="advanced-filter">
+                                        <a id="advancedFilterHref"
+                                           c:onClick="if(jq(this).hasClass('closeable')){ jq(this).removeClass('closeable');}else{jq(this).addClass('closeable');}">
+                                            Rozšířený filtr
+                                        </a>
+                                    </div>
+                                    <div class="action-buttons">
+                                        <space width="80px"/>
+                                        <label style="display:inline;" value="Moje filtry"/>
+                                        <bandbox id="ownStoredFilterAcb"/>
+                                        <space/>
+                                        <a id="saveOwnFilterBtn" sclass="btn-orion-blue" width="130px">
+                                            <span class="icon-arrow-left icon-space-right" xmlns="zul"></span>
+                                            <label value="Uložit filtr jako" class="btn-text"/>
+                                            <span xmlns="zul" class="btn-helper"></span>
+                                        </a>
+                                        <space/>
+                                        <a id="updateOwnFilterBtn" sclass="btn-orion-blue" width="130px">
+                                            <span class="icon-arrow-left icon-space-right" xmlns="zul"></span>
+                                            <label value="Aktualizovat filtr" class="btn-text"/>
+                                            <span xmlns="zul" class="btn-helper"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div sclass="grid-container">
+                                <div sclass="grid-paging">
+                                    <label value="Počet záznamů na stránce"/>
+                                    <combobox id="pageSizeBoxId" sclass="grid-paging-size"/>
+                                </div>
+                                <paging id="paging" detailed="true"/>
+                                <grid id="grid" class="top-bottom-paging" emptyMessage="Prázdný seznam">
+                                    <columns>
+                                        <column hflex="12" sort="auto(cisloDokladu)">Číslo dokladu</column>
+                                        <column id="defaultSortColumn" sort="auto(dtmPrijeti)" width="80px">Vytvořeno
+                                        </column>
+                                        <column hflex="30">Odběratel</column>
+                                        <column hflex="20">Místo dodání</column>
+                                        <column width="65px" sort="auto(dtmDodani)">Dodáno</column>
+                                        <column hflex="15">Poznámka</column>
+                                        <column hflex="10" id="createdDocColumn">
+                                            <label multiline="true" value="Vytvořené doklady"/>
+                                        </column>
+                                        <column hflex="min">Akce</column>
+                                    </columns>
+                                    <rows>
+                                        <row>
+                                            <cell>
+                                                <a href="" onClick="alert('click')">1111111111</a>
+                                            </cell>
+                                            <cell>12.05.2024</cell>
+                                            <cell>
+                                                <a>Alza, a.s.</a>
+                                            </cell>
+                                            <cell>259123456789</cell>
+                                            <cell>12.05.2024</cell>
+                                            <cell>poznámka</cell>
+                                            <cell>DL, FA</cell>
+                                        </row>
+                                    </rows>
+                                </grid>
+                                <paging id="paging2" detailed="true"/>
+                            </div>
+                        </div>
+                    </window>
+                </zk>
+            </n:div>
+            <n:div class="footer">
+                <n:div style="float:left">
+                    <n:ul class="footer-list footer-list-left">
+                        <n:li>
+                            <a id="showHelpHref">Pomůžeme Vám</a>
+                        </n:li>
+                        <n:li>
+                            <a id="feedbackHref">Zpětná vazba</a>
+                        </n:li>
+                        <n:li>
+                            <a id="contactHref">Kontakt</a>
+                        </n:li>
+                        <h:li id="remoteHelpLi">
+                            <a id="remoteHelpHref">Vzdálená pomoc</a>
+                        </h:li>
+                    </n:ul>
+                </n:div>
+                <n:div style="float:right">
+                    <n:ul class="footer-list footer-list-right">
+                        <n:li>
+                            <a id="copyrightHref"/>
+                        </n:li>
+                    </n:ul>
+                </n:div>
+                <n:div style="clear:both"/>
+            </n:div>
+            <div id="adminFoot" visible="false" class="footer-admin">
+                <n:div style="float:right">
+                    <label id="versionLabel" value=""/>
+                </n:div>
+            </div>
+        </n:div>
+    </div>
+</zk>

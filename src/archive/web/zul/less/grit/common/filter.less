@@ -1,0 +1,257 @@
+@import "_variables.less";
+@import "../_functions.less";
+
+/* filter styles */
+
+div.container {
+    width:100%;
+    padding-bottom: 10px;
+}
+
+.page-title {
+    display: inline-block;
+    vertical-align: middle;
+
+    &, .z-label {
+        text-transform: uppercase;
+        color: @pageTitleColor;
+        font-size: 20px;
+        font-weight: bold;
+    }
+}
+
+div.filter {
+    background: @bodyBackground; 
+    margin: 0;
+    padding-top: 0;
+    /*overflow: auto;*/
+    padding: 20px 20px 20px 20px;
+    .borderRadius(@standardBorderRadius);
+    
+    h1, h2, h3, h4 {
+        margin: 0;
+    }
+
+    span.z-label {
+        display: block;
+        margin: 5px 10px 5px 0;
+        
+        &.filter-label-left {
+            padding-top: 4px;
+        }
+    }
+
+    span.z-checkbox.filter-header {
+        display: block;
+        margin: 3px 2px 4px 0;
+
+        .z-checkbox-content {
+            margin-left: 0px;
+        }
+    }
+    
+    .btn-orion span.btn-text {
+        display: inline-block; 
+    } 
+
+    span.date-separator {
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+        width: 15px;
+    }
+
+    .z-datebox {
+        width: 100px;
+
+        &-input {
+            height: 32px;
+            text-indent: 5px;
+            box-sizing: border-box;
+        }
+    }
+
+    .z-chosenbox {
+        white-space: normal;
+    }
+
+    .z-spinner,
+    .z-combobox,
+    .z-textbox,
+    .z-bandbox {
+        width: 164px;
+
+        &-input {
+            height: 32px;
+            text-indent: 5px;
+            padding: 0px 26px 0px 5px;
+            box-sizing: border-box;
+        }
+    }
+
+    .z-textbox, 
+    .z-decimalbox, 
+    .z-intbox, 
+    .z-longbox, 
+    .z-doublebox {
+        height: 33px;
+        text-indent: 5px;
+        box-sizing: border-box;
+    }
+
+    table {
+
+        tr td {
+            vertical-align: top;
+
+            & > div {
+                padding-right: 15px;
+            }
+        }
+
+        .z-div {
+            white-space: nowrap;
+        }
+        /*
+        td td {
+            padding-right: 0px;
+        }*/
+    }
+
+    div.buttons {
+        float: left;
+        margin: 10px 0 0 327px; 
+
+        span.z-button {
+            margin-left: 10px;
+        }
+    }
+
+    div.action {
+        width:100%;
+        padding-top: 13px;
+        display: inline-block;
+
+        div.action-buttons {
+            float: left;
+            white-space: nowrap;
+
+            .btn .z-label {
+                display: inline-block;
+            }
+
+            .btn-orion-cancel {
+                padding: 5px 5px 5px 20px;
+                margin-left: 15px;
+                .leftBackgroundImage(@filterCancelImage, 11px, 11px);
+                transition: all 0.5s;
+                box-shadow: none;
+
+                .btn-text {
+                    color: @menuColor;
+                }
+
+                &:hover, &:active {
+                    .leftBackgroundImage(@filterCancelHoverImage, 11px, 11px);
+                    transition: all 0.5s;
+
+                    .btn-text {
+                        color: @submenuHoverColor;
+                    }
+                }
+
+                .icon-ban-circle {
+                    display: none;
+                }
+
+                .btn-text {
+                    margin: 0px;
+                    font-size: 11px;
+                    font-weight: bold;
+                }
+            }
+        }
+
+        div.advanced-filter {
+            float: left;
+            padding-left: 30px;
+            white-space: nowrap;
+        }
+    }
+
+    div.customFilterDiv {
+        width: 90%;
+
+        div.customfilter {
+            padding-right: 8px;
+
+            .customFilterHbox {
+                div {
+                    padding-right: 2px !important;
+                }
+
+                .z-textbox,
+                .z-decimalbox,
+                .z-intbox,
+                .z-longbox,
+                .z-doublebox {
+                    height: 33px;
+                    text-indent: 5px;
+                }
+
+                /*
+                .z-datebox-input {
+                    padding-bottom: 3px;
+                    padding-top: 3px;
+                    height: 30px;
+                }
+                */
+            }
+
+            a.customFilterBtnRemove {
+                margin-left: -2px;
+                i {
+                    font-size: 16px;
+                }
+            }
+
+            span.customFilterDbSeparator {
+                margin: 8px 0px 5px 0;
+            }
+        }
+    }
+}
+
+div.advanced-filter {
+    a {
+        float: left;
+        padding: 5px 5px 5px 20px;
+        margin-top: 5px;
+        color: @menuColor;
+        font-size: 11px;
+        font-weight: bold;
+        text-decoration: none;
+        .leftBackgroundImage(@advancedFilterArrowDown, @menuArrowDownWidth, @menuArrowDownHeight);
+        transition: all 0.5s;
+
+        &:hover, &:active {
+            color: @submenuHoverColor;
+            .leftBackgroundImage(@advancedFilterHoverArrowDown, @menuArrowDownWidth, @menuArrowDownHeight);
+            transition: all 0.5s;
+        }
+
+        &.closeable {
+            .leftBackgroundImage(@advancedFilterOpenArrowDown, @menuArrowDownHeight, @menuArrowDownWidth);
+
+            &:hover, &:active {
+                color: @submenuHoverColor;
+                .leftBackgroundImage(@advancedFilterOpenHoverArrowDown, @menuArrowDownHeight, @menuArrowDownWidth);
+            }
+        }
+    }
+}
+
+/* prepsani width=100% pro tabulky uvnitr tabpanelu */
+.z-tabbox.small-tabs .z-tabpanel div.filter table {
+    width: inherit;
+}

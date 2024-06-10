@@ -1,0 +1,174 @@
+@import "../_zkmixins.less";
+/* Mixins */
+.borderRadius(@size) {
+    .borderRadius(@size, 0);
+}
+.borderRadius(@size, @is_important) when (@is_important = 0) {
+    -webkit-border-radius: @size;
+    -moz-border-radius: @size;
+    border-radius: @size;
+}
+.borderRadius(@size, @is_important) when (@is_important = @important) {
+    -webkit-border-radius: @size !important;
+    -moz-border-radius: @size !important;
+    border-radius: @size !important;
+}
+.borderRadiusTop(@size) {
+    .borderRadiusTopLeft(@size);
+    .borderRadiusTopRight(@size);
+}
+.borderRadiusBottom(@size) {
+    .borderRadiusBottomLeft(@size);
+    .borderRadiusBottomRight(@size);
+}
+.borderRadiusLeft(@size) {
+    .borderRadiusTopLeft(@size);
+    .borderRadiusBottomLeft(@size);
+}
+.borderRadiusRight(@size) {
+    .borderRadiusTopRight(@size);
+    .borderRadiusBottomRight(@size);
+}
+.borderRadiusTopLeft(@size) {
+    -webkit-border-top-left-radius: @size;
+    -moz-border-radius-topleft: @size;
+    border-top-left-radius: @size;
+}
+.borderRadiusTopRight(@size) {
+    -webkit-border-top-right-radius: @size;
+    -moz-border-radius-topright: @size;
+    border-top-right-radius: @size;
+}
+.borderRadiusBottomLeft(@size) {
+    -webkit-border-bottom-left-radius: @size;
+    -moz-border-radius-bottomleft: @size;
+    border-bottom-left-radius: @size;
+}
+.borderRadiusBottomRight(@size) {
+    -webkit-border-bottom-right-radius: @size;
+    -moz-border-radius-bottomright: @size;
+    border-bottom-right-radius: @size;
+}
+// border-radius utility
+.topBorderRadius(@size) {
+    -webkit-border-radius: @size @size 0 0;
+    -moz-border-radius: @size @size 0 0;
+    -o-border-radius: @size @size 0 0;
+    -ms-border-radius: @size @size 0 0;
+    border-radius: @size @size 0 0;
+}
+.topLeftBorderRadius(@size) {
+    -webkit-border-radius: @size 0 0 0;
+    -moz-border-radius: @size 0 0 0;
+    -o-border-radius: @size 0 0 0;
+    -ms-border-radius: @size 0 0 0;
+    border-radius: @size 0 0 0;
+}
+.topRightBorderRadius(@size) {
+    -webkit-border-radius: 0 @size 0 0;
+    -moz-border-radius: 0 @size 0 0;
+    -o-border-radius: 0 @size 0 0;
+    -ms-border-radius: 0 @size 0 0;
+    border-radius: 0 @size 0 0;
+}
+.bottomBorderRadius(@size) {
+    -webkit-border-radius: 0 0 @size @size;
+    -moz-border-radius: 0 0 @size @size;
+    -o-border-radius: 0 0 @size @size;
+    -ms-border-radius: 0 0 @size @size;
+    border-radius: 0 0 @size @size;
+}
+.bottomLeftBorderRadius(@size) {
+    -webkit-border-radius: 0 0 @size 0;
+    -moz-border-radius: 0 0 @size 0;
+    -o-border-radius: 0 0 @size 0;
+    -ms-border-radius: 0 0 @size 0;
+    border-radius: 0 0 @size 0;
+}
+.bottomRightBorderRadius(@size) {
+    -webkit-border-radius: 0 0 @size 0;
+    -moz-border-radius: 0 0 @size 0;
+    -o-border-radius: 0 0 @size 0;
+    -ms-border-radius: 0 0 @size 0;
+    border-radius: 0 0 @size 0;
+}
+.rightBorderRadius(@size) {
+    -webkit-border-radius: 0 @size @size 0;
+    -moz-border-radius: 0 @size @size 0;
+    -o-border-radius: 0 @size @size 0;
+    -ms-border-radius: 0 @size @size 0;
+    border-radius: 0 @size @size 0;
+}
+.leftBorderRadius(@size) {
+    -webkit-border-radius: @size 0 0 @size;
+    -moz-border-radius: @size 0 0 @size;
+    -o-border-radius: @size 0 0 @size;
+    -ms-border-radius: @size 0 0 @size;
+    border-radius: @size 0 0 @size;
+}
+.boxShadow(@value) {
+    .boxShadow(@value, 0);
+}
+.boxShadow(@value,@is_important) when (@is_important = 0) {
+    -webkit-box-shadow: @value;
+    box-shadow: @value;
+}
+.boxShadow(@value,@is_important) when (@is_important = @important) {
+    -webkit-box-shadow: @value !important;
+    box-shadow: @value !important;
+}
+
+// gradient utility
+.horGradient(@start, @end) when (@start = @end) {
+	background: @start;
+}
+.horGradient(@start, @end) when not (@start = @end) {
+	t:gradient('hor', '@{start} 0%; @{end} 100%');
+}
+.verGradient(@start, @end) when (@start = @end) {
+	background: @start;
+}
+.verGradient(@start, @end) when not (@start = @end) {
+	t:gradient('ver', '@{start} 0%; @{end} 100%');
+}
+
+.verGradientSimple(@start,@end) {
+    background:	-moz-linear-gradient(top, @start, @end); /* FF3.6+ */
+    background:	-webkit-gradient(linear, left top, left bottom, @start, @end); /* Chrome,Safari4+ */
+    background:	-webkit-linear-gradient(top, @start, @end); /* Chrome10+,Safari5.1+ */
+    background:	-o-linear-gradient(top, @start, @end); /* Opera 11.10+ */
+    background:	-ms-linear-gradient(top, @start, @end); /* IE10+ */
+    background:	linear-gradient(to bottom, @start, @end); /* W3C */
+}
+.orangeBackgroundGradient() {
+    .verGradientSimple(@orangeGradientStart, @orangeGradientEnd);
+}
+.whiteBackgroundGradient() {
+    .verGradientSimple(@whiteGradientStart,@whiteGradientEnd);
+}
+.grayBackgroundGradient() {
+    .verGradientSimple(@grayGradientStart, @grayGradientEnd);
+}
+.redBackgroundGradient() {
+    .verGradientSimple(@redGradientStart, @redGradientEnd);
+}
+.greenBackgroundGradient() {
+    .verGradientSimple(@greenGradientStart, @greenGradientEnd);
+}
+.blueBackgroundGradient() {
+    .verGradientSimple(@blueGradientStart, @blueGradientEnd);
+}
+.leftBackgroundImage(@image, @width, @height) {
+    background: @image;
+    background-size: @width @height;
+    background-repeat: no-repeat;
+    background-position-x: 5px;
+    background-position-y: center;
+}
+.rotateClockwise(@value) {
+    t:transform('rotate(@{value})');
+}
+.rotateCounterClockwise(@value) {
+    t:transform('rotate(-@{value})');
+}
+

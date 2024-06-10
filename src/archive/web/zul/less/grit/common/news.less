@@ -1,0 +1,246 @@
+@import "_variables.less";
+@import "../_functions.less";
+
+.articles, .homepage {
+    h2 {
+        padding-bottom: 20px;
+
+        &, & .z-label {
+            text-transform: uppercase;
+            color: @pageTitleColor;
+            font-weight: normal;
+        }
+    }
+
+    div.news-detail{
+        padding-left: 500px;
+
+        .news-empty{
+            text-align: center;
+            font-size: 18px;
+            color: #909090;
+            width: 100%;
+            display: block;
+        }
+
+        .page-title {
+            &, & .z-label {
+                text-transform: none;
+            }
+        }
+
+        .download-title-cell {
+            float: left;
+        }
+
+        .download-btn-cell {
+            float:right;
+
+            .previewBtn {
+                color: @menuColor;
+                margin-left: 5px;
+
+                &:hover {
+                    color: @submenuHoverColor;
+                }
+            }
+        }
+    }
+
+    div.news-container {
+        width: 450px;
+        float: left;
+
+        div.news-empty{
+            width: 100%;
+            height: 100px;
+            text-align: center;
+            font-size: 18px;
+            color: #909090;
+            border-top: 1px solid #d0d0d0;
+            vertical-align: middle;
+            line-height: 100px;
+            border-bottom: 1px solid #d0d0d0;
+        }
+
+        div.news-header{
+            line-height: 18px
+        }
+
+        div.select{
+            background-color: #d0d0d0;
+        }
+
+        div.news {
+            border: 1px solid @btnBlueBackground;
+            .borderRadius(@standardBorderRadius);
+            background-color: @contentBackground;
+            overflow: auto;
+            line-height: 25px;
+            margin-bottom: 10px;
+
+            .z-label {
+                color: @btnBlueBackground;
+            }
+
+            &, &.select, &:hover {
+                background-repeat: no-repeat;
+                background-position-y: center;
+            }
+
+            &.select, &:hover {
+                border: 1px solid @contentBackground;
+                background-color: @btnBlueBackground;
+
+                .z-label {
+                    color: @contentBackground;
+                }
+            }
+
+            &.article-info {
+                background-image: @infoNewsImage;
+
+                &.select, &:hover {
+                    background-image: @infoNewsHoverImage;
+                }
+
+                &, &.select, &:hover {
+                    background-size: 8px;
+                    background-position-x: 26px;
+                }
+            }
+
+            &.article-warn {
+                background-image: @warnNewsImage;
+                border-color: @btnOrionBackground;
+
+                &, &.select, &:hover {
+                    background-size: 24px;
+                    background-position-x: 20px;
+                }
+
+                .z-label {
+                    color: @btnOrionBackground;
+                }
+
+                &.select, &:hover {
+                    background-color: @btnOrionBackground;
+                    background-image: @warnNewsHoverImage;
+
+                    .z-label {
+                        color: @contentBackground;
+                    }
+                }
+            }
+
+            &.article-video {
+                background-color: @contentBackground;
+                background-image: @videoImage;
+
+                &, &.select, &:hover {
+                    background-size: 24px;
+                    background-position-x: 14px;
+                }
+
+                &.select, &:hover {
+                    background-color: @btnBlueBackground;
+                    background-image: @videoHoverImage;
+                }
+            }
+
+            &.article-download {
+                background-image: @documentImage;
+
+                &, &.select, &:hover {
+                    background-size: 22px 26px;
+                    background-position-x: 20px;
+                }
+
+                &.select, &:hover {
+                    background-image: @documentHoverImage;
+                }
+            }
+
+            .news-icon {
+                display: none; // kvuli novym background obrazkum schovame fontovou ikonu
+                float: left;
+                margin: 3px 10px;
+                font-size: 25px;
+            }
+
+            span {
+                &.icon-exclamation-sign, &.flaticon-adobe21 {
+                    color: red;
+                }
+                &.icon-info-sign {
+                    color: #4479ce;
+                }
+            }
+
+            .name-unread, .name-unread .z-label {
+                font-weight: bold;
+            }
+
+            .name-read, .name-read .z-label {
+                font-weight: normal;
+            }
+
+            .time {
+                font-size: 12px;
+                float: right;
+                margin: 15px 15px 15px 10px;
+            }
+
+            textarea {
+                margin: 5px 0 10px 0;
+                border: 1px solid #4c78a4;
+                height: 70px;
+                padding: 5px;
+                width: 100%;
+                font-size: 12px;
+                font-family: Arial, sans-serif;
+            }
+
+            div.actions {
+                float: right;
+                margin: -1px 5px 0 5px;
+                opacity: 0.5;
+
+                a.action-btn:hover{
+                    background: none;
+                }
+
+                a {
+                    display: inline-block;
+                    padding: 0 0 0 5px;
+                }
+
+                img {
+                    width: auto;
+                }
+            }
+
+            &:hover div.actions {
+                opacity: 1;
+            }
+
+            div.news-content .z-a {
+                text-decoration: none;
+                display: block;
+                padding: 10px 70px 10px 60px;
+            }
+
+            div.news-wordwrap {
+                // http://perishablepress.com/wrapping-content/
+                white-space: pre;           /* CSS 2.0 */
+                white-space: pre-wrap;      /* CSS 2.1 */
+                white-space: pre-line;      /* CSS 3.0 */
+                white-space: -pre-wrap;     /* Opera 4-6 */
+                white-space: -o-pre-wrap;   /* Opera 7 */
+                white-space: -moz-pre-wrap; /* Mozilla */
+                white-space: -hp-pre-wrap;  /* HP Printers */
+                word-wrap: break-word;      /* IE 5+ */
+            }
+        }
+    }
+}

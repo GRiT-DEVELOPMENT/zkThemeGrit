@@ -1,0 +1,142 @@
+@import "_variables.less";
+@import "../_functions.less";
+
+/* comments styles */
+
+div.comments {
+    width: 35%;
+    float: right;
+    padding: @standardDivMargin;
+    background: @gridContainerBackground;
+    .borderRadius(@standardBorderRadius);
+
+    .btn-orion-grey {
+        background-color: transparent;
+        color: black;
+        border: 1px solid @colorDarkGray;
+        box-shadow: none;
+        padding-top: 7px;
+        padding-bottom: 7px;
+
+        .btn-text {
+            color: @colorBlack;
+            text-transform: uppercase;
+            font-size: 11px;
+        }
+
+        &:hover, &:focus, &:active, &.active, &.disabled, &[disabled] {
+            color: @colorWhite;
+            background-color: @colorDarkGray;
+
+            .btn-text {
+                color: white;
+            }
+        }
+    }
+
+    div.comment {
+        padding: 10px 0;
+        border-top: 1px solid #d6d6d6;
+        overflow: auto;
+
+        &.inputBox {
+            border-top: none;
+            padding-top: 0;
+        }
+
+        img {
+            width: 50px;
+            float: left;
+        }
+
+        a{
+            color: #000;
+        }
+
+        a .btn-text {
+            color: white;
+            text-transform: uppercase;
+            padding: 5px 12px;
+            font-weight: bold;
+        }
+
+        .name-unread {
+            font-weight: bold;
+        }
+
+        .name-read {
+            font-weight: normal;
+        }
+
+        .time {
+            font-size: 12px;
+            color: #999999;
+            float: right;
+        }
+
+        .comment-content {
+            display: block;
+            clear: right;
+            margin-top: 5px;
+            line-height: 1.5em;
+        }
+
+        textarea {
+            margin: 10px 0;
+            height: 100px;
+            padding: 10px;
+            width: 100%;
+            font-size: 12px;
+            font-family: Arial, sans-serif;
+            resize: none;
+        }
+
+        div.actions {
+            float: right;
+            margin: -1px 5px 0 5px;
+
+            a {
+                display: inline-block;
+                padding: 0 0 0 5px;
+
+                &.remove.action-btn {
+                    .ico-stack-container {
+                        display: none;
+                    }
+
+                    background-image: @deleteImage;
+                    background-repeat: no-repeat;
+                    background-size: 10px;
+                    background-position: center;
+                    width: 15px;
+                    height: 15px;
+                }
+            }
+
+            img {
+                width: auto;
+            }
+        }
+
+        div.comment-in {
+            margin-left: 60px;
+            
+            .z-label.name {
+                font-weight: bold;
+            }
+        }
+
+        div.wordwrapcomment {
+            // http://perishablepress.com/wrapping-content/
+            white-space: pre;           /* CSS 2.0 */
+            white-space: pre-wrap;      /* CSS 2.1 */
+            white-space: pre-line;      /* CSS 3.0 */
+            white-space: -pre-wrap;     /* Opera 4-6 */
+            white-space: -o-pre-wrap;   /* Opera 7 */
+            white-space: -moz-pre-wrap; /* Mozilla */
+            white-space: -hp-pre-wrap;  /* HP Printers */
+            word-wrap: break-word;      /* IE 5+ */
+            margin-top: 10px;
+        }
+    }
+}

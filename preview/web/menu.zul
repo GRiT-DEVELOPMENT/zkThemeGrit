@@ -1,0 +1,138 @@
+<zk xmlns:n="native" xmlns:h="xhtml">
+    <div id="mainMenuId" class="z-div">
+        <h:ul id="uIAPe2" class="menu">
+            <h:li id="uIAPf2" class="home"><a id="uIAPg2" class="menu-item  z-a" tooltiptext="Domovská stránka" href="/orionweb/app/secure/main#home">Úvod</a></h:li>
+            <h:li id="uIAPh2" class="dropdown"><a id="uIAPi2" class="sub  menu-item   z-a" href="javascript:;"><span id="uIAPj2" class="z-label">Nákup</span><span id="uIAPk2" class="arrow z-span"></span></a>
+                <h:ul id="uIAPl2">
+                    <h:li id="uIAPm2"><a id="uIAPn2" class="menu-item z-a" href="/orionweb/app/secure/main#diaries-outOrders-list_reset_true">Objednávky</a></h:li>
+                    <h:li id="uIAPo2"><a id="uIAPp2" class="menu-item z-a" href="/orionweb/app/secure/main#diaries-inOrdrsp-list_reset_true">Odpovědi na objednávku</a></h:li>
+                    <h:li id="uIAPq2"><a id="uIAPr2" class="menu-item z-a" href="/orionweb/app/secure/main#diaries-inDesadv-list_reset_true">Dodací listy</a></h:li>
+                    <h:li id="uIAPs2"><a id="uIAPt2" class="menu-item z-a" href="/orionweb/app/secure/main#diaries-inInvoice-list_reset_true">Faktury</a></h:li>
+                    <h:li id="uIAPu2"><a id="uIAPv2" class="menu-item z-a" href="/orionweb/app/secure/main#diaries-outRecadv-list_reset_true">Příjemky</a></h:li>
+                    <h:li id="uIAPw2" class="divider"></h:li>
+                    <h:li id="uIAPx2"><a id="uIAPy2" class="menu-item z-a" href="/orionweb/app/secure/main#diaries-liquidator-invoicList_reset_true">Zpracování faktur</a></h:li>
+                    <h:li id="uIAPz2"><a id="uIAP_3" class="menu-item z-a" href="/orionweb/app/secure/main#diaries-liquidator-caseList_reset_true">Zpracování dodávek</a></h:li>
+                    <h:li id="uIAP03"><a id="uIAP13" class="menu-item z-a" href="/orionweb/app/secure/main#diaries-balance-list_reset_true">Uzávěrky</a></h:li>
+                </h:ul>
+            </h:li>
+            <h:li id="uIAP23" class="dropdown"><a id="uIAP33" class="sub menu-item menu-item-highlighted z-a" href="javascript:;"><span id="uIAP43" class="z-label">Prodej</span><span id="uIAP53" class="arrow z-span"></span></a>
+                <h:ul id="uIAP63">
+                    <h:li id="uIAP73"><a id="uIAP83" class="menu-item menu-item-highlighted z-a" href="/orionweb/app/secure/main#diaries-inOrders-list_reset_true">Objednávky</a></h:li>
+                    <h:li id="uIAP93"><a id="uIAPa3" class="menu-item z-a" href="/orionweb/app/secure/main#diaries-outOrdrsp-list_reset_true">Odpovědi na objednávku</a></h:li>
+                    <h:li id="uIAPb3"><a id="uIAPc3" class="menu-item z-a" href="/orionweb/app/secure/main#diaries-outDesadv-list_reset_true">Dodací listy</a></h:li>
+                    <h:li id="uIAPd3"><a id="uIAPe3" class="menu-item z-a" href="/orionweb/app/secure/main#diaries-inRecadv-list_reset_true">Příjemky</a></h:li>
+                    <h:li id="uIAPf3"><a id="uIAPg3" class="menu-item z-a" href="/orionweb/app/secure/main#diaries-inRetann-list_reset_true">Vratky</a></h:li>
+                    <h:li id="uIAPh3"><a id="uIAPi3" class="menu-item z-a" href="/orionweb/app/secure/main#diaries-outInvoice-list_reset_true">Faktury</a></h:li>
+                    <h:li id="uIAPj3" class="divider"></h:li>
+                    <h:li id="uIAPk3"><a id="uIAPl3" class="menu-item z-a" href="/orionweb/app/secure/main#diaries-inRozzpr-list_reset_true">Rozdílové zprávy</a></h:li>
+                    <h:li id="uIAPm3"><a id="uIAPn3" class="menu-item z-a" href="/orionweb/app/secure/main#sscc_reset_true">Vytvořit logistickou etiketu</a></h:li>
+                    <h:li id="uIAPo3" class="divider"></h:li>
+                    <h:li id="uIAPp3"><a id="uIAPq3" class="menu-item z-a" href="/orionweb/app/secure/main#diaries-rogerPayment-list_reset_true">Roger platba</a></h:li>
+                    <h:li id="uIAPr3" class="divider"></h:li>
+                    <h:li id="uIAPs3"><a id="uIAPt3" class="menu-item z-a" href="/orionweb/app/secure/main#settings-nestleDeliveryPoint-list_reset_true">Nestlé - odběrná místa</a></h:li>
+                </h:ul>
+            </h:li>
+            <h:li id="uIAPu3" class="dropdown"><a id="uIAPv3" class="sub menu-item z-a" href="javascript:;"><span id="uIAPw3" class="z-label">Dokumenty</span><span id="uIAPx3" class="arrow z-span"></span></a>
+                <h:ul id="uIAPy3">
+                    <h:li id="uIAPz3"><a id="uIAP_4" class="menu-item z-a" href="/orionweb/app/secure/main#diaries-inDocument-list_reset_true">Přijaté dokumenty</a></h:li>
+                    <h:li id="uIAP04" class="divider"></h:li>
+                    <h:li id="uIAP14"><a id="uIAP24" class="menu-item z-a" href="/orionweb/app/secure/main#ds-inMessages-list_reset_true">Přijaté zprávy DS</a></h:li>
+                    <h:li id="uIAP34"><a id="uIAP44" class="menu-item z-a" href="/orionweb/app/secure/main#ds-outMessages-list_reset_true">Odeslané zprávy DS</a></h:li>
+                </h:ul>
+            </h:li>
+            <h:li id="uIAP54" class="dropdown"><a id="uIAP64" class="sub menu-item z-a" href="javascript:;"><span id="uIAP74" class="z-label">Komunikace</span><span id="uIAP84" class="arrow z-span"></span></a>
+                <h:ul id="uIAP94">
+                    <h:li id="uIAPa4"><a id="uIAPb4" class="menu-item z-a" href="/orionweb/app/secure/main#diaries-inMessages-list_reset_true">Přijaté zprávy</a></h:li>
+                    <h:li id="uIAPc4"><a id="uIAPd4" class="menu-item z-a" href="/orionweb/app/secure/main#diaries-inPackages-list_reset_true">Přijaté zásilky</a></h:li>
+                    <h:li id="uIAPe4"><a id="uIAPf4" class="menu-item z-a" href="/orionweb/app/secure/main#diaries-inDownApplet-list_reset_true">Automatický příjem</a></h:li>
+                    <h:li id="uIAPg4"><a id="uIAPh4" class="menu-item z-a" href="/orionweb/app/secure/main#diaries-inSenders-list_reset_true">Odesílatelé</a></h:li>
+                    <h:li id="uIAPi4" class="divider"></h:li>
+                    <h:li id="uIAPj4"><a id="uIAPk4" class="menu-item z-a" href="/orionweb/app/secure/main#diaries-outMessages-list_reset_true">Odeslané zprávy</a></h:li>
+                    <h:li id="uIAPl4"><a id="uIAPm4" class="menu-item z-a" href="/orionweb/app/secure/main#diaries-outPackages-list_reset_true">Odeslané zásilky</a></h:li>
+                    <h:li id="uIAPn4"><a id="uIAPo4" class="menu-item z-a" href="/orionweb/app/secure/main#diaries-outUploadApplet-list_reset_true">Automatické odeslání</a></h:li>
+                    <h:li id="uIAPp4"><a id="uIAPq4" class="menu-item z-a" href="/orionweb/app/secure/main#upload-packageUpload_reset_true">Ruční odeslání</a></h:li>
+                    <h:li id="uIAPr4"><a id="uIAPs4" class="menu-item z-a" href="/orionweb/app/secure/main#diaries-outRecipients-list_reset_true">Adresáti</a></h:li>
+                    <h:li id="uIAPt4" class="divider"></h:li>
+                    <h:li id="uIAPu4"><a id="uIAPv4" class="menu-item z-a" href="/orionweb/app/secure/main#others-clearing-list_reset_true">Clearing</a></h:li>
+                </h:ul>
+            </h:li>
+        </h:ul>
+    </div>
+    <div id="userMenuId" class="user">
+        <n:a class="user_dropdown">
+            <n:span class="photo">
+                <image src="~./zul/img/grit/unknown-person.png" height="35px" width="35px" id="profileImage"/>
+            </n:span>
+            <n:span class="info">
+                <label class="name" id="loginUser"/>
+                <n:span>
+                    <label id="companyLabel"/>
+                </n:span>
+            </n:span>
+            <n:span class="dropdown"></n:span>
+        </n:a>
+        <h:ul id="userUl">
+            <h:li class="user-info">
+                <n:span class="info">
+                    <label class="name" id="userInfoName"/>
+                    <label class="company" id="userInfoCompany"/>
+                </n:span>
+            </h:li>
+            <h:li class="user-info divider"></h:li>
+            <h:li>
+                <n:a sclass="user-menu-profile">Edit profile</n:a>
+            </h:li>
+            <h:li>
+                <n:a sclass="user-menu-logout">Logout</n:a>
+            </h:li>
+        </h:ul>
+    </div>
+    <div id="servicesMenuId"/>
+
+    <div id="menuButtons" sclass="menu-buttons">
+        <n:ul class="menu">
+            <!-- zakomentovano dokud se v MKTG nedomluvi, jak ma vypadat
+            <n:li>
+                <a id="clientZoneMenuBtn" class="menu-button-client-zone" href="#client-zone-invoices-list" tooltiptext="${labels.db.menu.client_zone}">
+                    <label sclass="menu-button-label icon-cogs">${labels.db.menu.client_zone}</label>
+                    <label visible="false" sclass="unread menu-button-unread" id="clientZoneCount" tooltip="${header.href.sum_client_zone}">0</label>
+                </a>
+            </n:li>
+            -->
+            <n:li>
+                <a id="settingsMenuBtn" class="menu-button-settings"
+                   tooltiptext="Zobrazit nastavení">
+                    <h:i sclass="menu-button-settings-icon icon-cogs"></h:i>
+                    <label visible="false" sclass="unread menu-button-unread" id="settingsMenuCount"
+                           tooltip="Nepřečteno">0</label>
+                </a>
+            </n:li>
+            <n:li>
+                <a id="incidentyMenuBtn" popup="incidentyPopup, position=after_start, type=toggle"
+                   class="menu-button-incidents">
+                    <label sclass="menu-button-label">K řešení</label>
+                    <label sclass="unread menu-button-unread" id="incidentyCount"
+                           tooltip="Nepřečteno">0</label>
+                </a>
+                <popup id="incidentyPopup" class="menu-popup-content menu-popup-incidents">
+                    <h:h2>K řešení</h:h2>
+                    <div id="incidentyPopupContent"/>
+                    <label sclass="z-inline-loading" id="incidentyPopupLoading">Loading</label>
+                </popup>
+            </n:li>
+            <n:li>
+                <a id="zpravyMenuBtn" popup="zpravyPopup, position=after_start, type=toggle"
+                   class="menu-button-messages">
+                    <label sclass="menu-button-label">Zprávy</label>
+                    <label sclass="unread menu-button-unread" id="messageCount"
+                           tooltip="Nepřečteno">0</label>
+                </a>
+                <popup id="zpravyPopup" class="menu-popup-content menu-popup-messages">
+                    <h:h2>Zprávy</h:h2>
+                    <div id="zpravyPopupContent"/>
+                    <label sclass="z-inline-loading" id="zpravyPopupLoading">Loading</label>
+                </popup>
+            </n:li>
+        </n:ul>
+    </div>
+</zk>

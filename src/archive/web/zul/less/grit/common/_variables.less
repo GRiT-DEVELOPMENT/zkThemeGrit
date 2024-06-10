@@ -1,0 +1,166 @@
+/* Variables */
+@important: 1;
+@PAGE_MIN_WIDTH: 995px;
+@WRAPPER_WIDTH: 79.5%;
+@HEADER_MIN_WIDTH: 990px;
+@MENU_Z_INDEX: 1000;
+@SIDE_Z_INDEX: 999;
+
+@colorWhite: #ffffff;
+@colorBlack: #000000;
+@colorOrange: #f68121;
+@colorOrangeLighter: #f68f21;
+@colorDarkBlue: #00346e;
+@colorLightBlue: #bfcee0;
+@colorGray: #dbdbdb;
+@colorGrayLighter: #f6f6f6;
+@colorDarkGray: #444444;
+@colorRed: #ce2222;
+@colorDarkGreen: #249547;
+
+/* Gradient colors */
+@orangeGradientStart: #f68121;
+@orangeGradientEnd: #ff8b2b;
+@whiteGradientStart: #fbfbfb;
+@whiteGradientEnd: #ffffff;
+@grayGradientStart: #999999;
+@grayGradientEnd: #ababab;
+@redGradientStart: #ec2020;
+@redGradientEnd: #ef5050;
+@blueGradientStart: @colorDarkBlue;
+@blueGradientEnd: #00458f;
+@greenGradientStart: #62c462;
+@greenGradientEnd: #62ec62;
+
+/* Background */
+@bodyBackground: #f2f5f7;
+@filterBackground: #e6ecf4;
+@sideContainerBackground: #4479ce;
+@menuBackground: @colorWhite;
+@menuHoverBackground: @colorDarkBlue;
+@menuComponentBackground: @colorOrange;
+@contentBackground: @colorWhite;
+@btnBlueBackground: @colorDarkBlue;
+@btnBlueHoverBackground: @colorOrange;
+@btnBlueActiveBackground: @colorOrangeLighter;
+@btnOrionBackground: @colorOrange;
+@btnOrionHoverBackground: @colorOrangeLighter;
+@filterBtnBackground: @colorOrange;
+@filterBtnHoverBackground: @colorOrangeLighter;
+@gridContainerBackground: @colorGrayLighter;
+@statusGreen: #36d332;
+@statusRed: #ff0000;
+@statusOrange: @colorOrange;
+@statusYellow: #ffff00;
+@statusBlue: #0000ff;
+@statusGray: #aaaaaa;
+
+/* Box shadow */
+@standardBoxShadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.2);
+
+/* Text */
+@caretColor: @colorWhite;
+@pageTitleColor: @colorBlack;
+@btnOrionColor: @colorWhite;
+@btnBlueColor: @colorWhite;
+@btnBlueHoverColor: @colorWhite;
+@menuPopupTextColor: @colorLightBlue;
+@btnDisabledColor: #626262;
+@btnDisabledBoder: 1px solid @btnDisabledColor;
+@btnDisabledBackground: @colorWhite;
+
+@menuColor: @colorDarkBlue;
+@menuHoverColor: @colorWhite;
+@submenuColor: @colorWhite;
+@submenuHoverColor: @colorOrange;
+
+/* Border */
+@contentBorderColor: @colorGray;
+@menuPopupTextBorderColor: #305888;
+
+/* Size */
+@standardBorderRadius: 5px;
+@menuHomeAnchorWidth: 30px;
+@menuHomeAnchorHeight: 30px;
+@menuItemPadding: 10px 27px 6px 15px;
+
+/* Margin & Padding*/
+@standardDivMargin: 20px;
+@standardInnerDivPadding: 15px;
+
+/* Images */
+@menuHomeImage: '~./zul/img/facelift/home.png';
+@menuHomeWidth: 16px;
+@menuHomeHeight: 14px;
+@menuArrowDownImage: '~./zul/img/facelift/arrow_down.png';
+@menuHoverArrowDownImage: '~./zul/img/facelift/arrow_down_active.png';
+@menuArrowDownWidth: 8px;
+@menuArrowDownHeight: 4px;
+@submenuBackgroundImage: '~./zul/img/facelift/chevron_right_submenu_inactive.png';
+@submenuHoverBackgroundImage: '~./zul/img/facelift/chevron_right_submenu_active.png';
+@submenuBackgroundWidth: 4px;
+@submenuBackgroundHeight: 7px;
+@searchImage: '~./zul/img/facelift/search.png';
+@recentMessagesImage: '~./zul/img/facelift/recent_news.png';
+@filterCancelImage: '~./zul/img/facelift/filter_cancel.png';
+@filterCancelHoverImage: '~./zul/img/facelift/filter_cancel_active.png';
+@advancedFilterArrowDown: @menuArrowDownImage;
+@advancedFilterHoverArrowDown: '~./zul/img/facelift/arrow_down_orange.png';
+@advancedFilterOpenArrowDown: '~./zul/img/facelift/arrow_right.png';
+@advancedFilterOpenHoverArrowDown: '~./zul/img/facelift/arrow_right_orange.png';
+@gridAddRowImage: '~./zul/img/facelift/plus_circle_blue.png';
+@gridAddRowHoverImage: '~./zul/img/facelift/plus_circle_orange.png';
+@gridAddRowDisabledImage: '~./zul/img/facelift/plus_circle_grey.png';
+@gridDeleteRowImage: '~./zul/img/facelift/cross_blue.png';
+@gridDeleteRowHoverImage: '~./zul/img/facelift/cross_orange.png';
+@gridDeleteRowDisabledImage: '~./zul/img/facelift/cross_grey.png';
+@videoImage: '~./zul/img/facelift/play_blue.png';
+@videoHoverImage: '~./zul/img/facelift/play_white.png';
+@documentImage: '~./zul/img/facelift/doc_blue.png';
+@documentHoverImage: '~./zul/img/facelift/doc_white.png';
+@infoNewsImage: '~./zul/img/facelift/info_blue.png';
+@infoNewsHoverImage: '~./zul/img/facelift/info_white.png';
+@warnNewsImage: '~./zul/img/facelift/excl_ring_transparent.png';
+@warnNewsHoverImage: '~./zul/img/facelift/excl_ring_white.png';
+@deleteImage: '~./zul/img/facelift/cross.png';
+@trashImage: '~./zul/img/facelift/trash.png';
+@trashHoverImage: '~./zul/img/facelift/trash_hover.png';
+@plusImage: '~./zul/img/facelift/plus_circle.png';
+@plusHoverImage: '~./zul/img/facelift/plus_circle_orange.png';
+@listItemImage: '~./zul/img/facelift/arrow_right.png';
+@listItemHoverImage: '~./zul/img/facelift/arrow_right_orange.png';
+@menuAlarmImage: '~./zul/img/facelift/alarm.png';
+@menuAlarmActiveImage: '~./zul/img/facelift/alarm_active.png';
+@menuPasswordImage: '~./zul/img/facelift/password.png';
+@menuPasswordActiveImage: '~./zul/img/facelift/password_active.png';
+@menuSwitchUserImage: '~./zul/img/facelift/switch_user.png';
+@menuSwitchUserActiveImage: '~./zul/img/facelift/switch_user_active.png';
+@menuEditProfileImage: '~./zul/img/facelift/edit_profile.png';
+@menuEditProfileActiveImage: '~./zul/img/facelift/edit_profile_active.png';
+@menuLogoutImage: '~./zul/img/facelift/logout.png';
+@menuLogoutActiveImage: '~./zul/img/facelift/logout_active.png';
+@logoOrionImage: '~./zul/img/grit/logoOrion.png';
+@logoOrionSmallImage: '~./zul/img/grit/logo_small.png';
+@menuClientZoneImage: '~./zul/img/facelift/client_zone_inactive.png';
+@menuClientZoneActiveImage: '~./zul/img/facelift/client_zone_active.png';
+@menuMessagesImage: '~./zul/img/facelift/messages_inactive.png';
+@menuMessagesActiveImage: '~./zul/img/facelift/messages_active.png';
+@menuTasksImage: '~./zul/img/facelift/tasks_inactive.png';
+@menuTasksActiveImage: '~./zul/img/facelift/tasks_active.png';
+// footer
+@footerGlnImage: '~./zul/img/facelift/GLN.png';
+@footerGlnWidth: 11px;
+@footerGlnHeight: 13px;
+@footerGlnPadding: 20px;
+@footerAdminImage: '~./zul/img/facelift/admin.png';
+@footerAdminWidth: 20px;
+@footerAdminHeight: 13px;
+@footerAdminPadding: 30px;
+@footerTransferImage: '~./zul/img/facelift/last_transfer.png';
+@footerTransferWidth: 13px;
+@footerTransferHeight: 13px;
+@footerTransferPadding: 20px;
+@footerTariffImage: '~./zul/img/facelift/tarif.png';
+@footerTariffWidth: 13px;
+@footerTariffHeight: 13px;
+@footerTariffPadding: 20px;

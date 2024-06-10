@@ -1,0 +1,836 @@
+@import "_variables.less";
+@import "../_functions.less";
+
+/* header with menu style */
+@media print, screen, projection, tv {
+    div.header {
+        height: 55px;
+        min-width: @PAGE_MIN_WIDTH;
+        width: 100%;
+        /*border-bottom: 1px solid #d8d8d8;*/
+        /*background: #dfdede url('../img/bg_header.png') repeat-x;*/
+        /*position: absolute;*/
+        left: 0;
+        z-index: @MENU_Z_INDEX;
+        /*.boxShadow(0px 1px 0px 0px rgba(0, 0, 0, 0.2));*/
+
+        div.header_wrapper {
+            margin: 0 auto;
+            width: 79%;
+            min-width: @HEADER_MIN_WIDTH;
+            text-align: left;
+            position: relative;
+            /* Zakomentovano kvuli OBACKLOG-7592 - pri zobrazeni modalniho okna by melo byt menu pod timto oknem, ne nad nim
+            je potreba mit vyssi nez 18xx coz je natvrdo setovana hodnota ZK pro notifikaci / modalni okno
+            z-index: 9999; 
+            */
+
+            a.logoImg {
+                .encodeThemeURL(background-image, @logoOrionImage);
+            }
+
+            a.logo {
+                margin: 7px 30px 1px 0;
+                float: left;
+                background-repeat: no-repeat;
+                min-width: 50px;
+                max-width: 130px;
+                width: 130px;
+                height: 40px;
+                img {
+                    display: block;
+                }
+
+                &:hover {
+                    opacity: 0.9;
+                }
+
+                &:active {
+                    margin: 8px 30px 0 0;
+                }
+
+                &.short {
+                    .encodeThemeURL(background-image, @logoOrionSmallImage);
+                    min-width: 30px;
+                    width: 30px;
+                    margin-right: 15px;
+                    background-size: 30px;
+                    margin-top: 14px;
+                }
+                &.short img{
+                    display: none;
+                }
+            }
+
+            ul.menu {
+                float: left;
+                margin-top: 7px;
+                padding-left: 40px;
+
+                & > li.dropdown > a.sub {
+                    position: relative;
+                    padding: @menuItemPadding !important;
+                }
+
+                li {
+                    list-style: none;
+                    float: left;
+                    position: relative;
+                    margin-top: 2pt;
+
+                    .z-a {
+                        .z-label {
+                            font-size: 15px;
+                            font-weight: bold;
+                            text-transform: uppercase;
+                            color: @menuColor;
+                        }
+                    }
+
+                    ul li .z-a {
+
+                        &, & .z-label {
+                            font-size: 13px;
+                            text-transform: none;
+                        }
+                    }
+
+                    a {
+                        /*text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.7);*/
+                        padding: 7px 6px;
+                        text-decoration: none;
+                        display: block;
+                        position: relative;
+                        margin-right: 1px;
+                    }
+
+                    &.active a, a:hover {
+                        .borderRadius(@standardBorderRadius);
+                        /*border: 1px solid #fff;*/
+                        /*padding: 5px 14px 5px 14px;*/
+                        .boxShadow(0px 0px 1px 0px rgba(0, 0, 0, 0.3));
+                    }
+
+                    &.active a:hover, &.active:hover a {
+                        margin-right: 1px;
+                    }
+
+                    &:hover a, a:hover {
+                        /*margin-right: 0px;*/
+                    }
+                    a:focus {
+                        color: inherit;
+                    }
+
+                    &.dropdown {
+
+                        ul {
+                            width: 200px;
+                            display: none;
+                            position: absolute;
+                            /*top: 27px;*/
+                            left: 0;
+                            background: @menuHoverBackground;
+                            .borderRadius(0 @standardBorderRadius @standardBorderRadius @standardBorderRadius);
+                            /*border: 1px solid #fff;*/
+                            padding: 0px 5px;
+                            .boxShadow(0px 1px 1px 0px rgba(0, 0, 0, 0.3));
+                            z-index: 1;
+
+                            li {
+                                &, &.dropdown {
+                                    border-bottom: 1px solid @submenuColor;
+                                    float: none;
+
+                                    &:last-child {
+                                        border-bottom: none;
+                                    }
+
+                                    &.divider {
+                                        height: 1px;
+                                        margin: 5px 0px;
+                                        padding: 0;
+                                        overflow: hidden;
+                                        background-color: #e5e5e5;
+                                        border-bottom: 1px solid #ffffff;
+                                        display: none;
+                                    }
+
+                                    a {
+                                        &, &.sub {
+                                            color: @submenuColor;
+                                            font-weight: bold;
+                                            border: none;
+                                            .boxShadow(none);
+                                            padding: 8px 8px 8px 15px;
+                                            margin-right: -5px;
+                                            margin-left: 4px;
+                                            transition: all 0.5s;
+                                            background: @submenuBackgroundImage;
+                                            background-size: @submenuBackgroundWidth @submenuBackgroundHeight;
+                                            background-repeat: no-repeat;
+                                            background-position-y: center;
+                                            background-position-x: left;
+
+                                            &:hover {
+                                                color: @submenuHoverColor;
+                                                background-image: @submenuHoverBackgroundImage;
+                                                margin-left: 4px;
+                                            }
+                                        }
+                                    }
+
+                                    ul {
+                                        display: none;
+                                        .borderRadius(5px);
+                                        .topLeftBorderRadius(0);
+                                    }
+
+                                    &.hover {
+
+                                        a.sub {
+                                            color: @submenuHoverColor;
+                                            background-image: @submenuHoverBackgroundImage;
+                                            margin-left: 4px;
+                                            background-size: @submenuBackgroundWidth @submenuBackgroundHeight;
+                                            background-repeat: no-repeat;
+                                            background-position-y: center;
+                                            background-position-x: left;
+
+                                            &, .z-label, .arrow {
+                                                color: @submenuHoverColor;
+                                                font-weight: bold;
+                                            }
+
+                                            span.arrow {
+                                                transform: rotate(270deg);
+                                            }
+                                        }
+
+                                        ul {
+                                            display: block;
+                                            position: absolute;
+                                            left: 200px;
+                                            top: -11px;
+                                            .borderRadius(0 5px 5px 5px);
+                                        }
+                                    }
+                                    /*
+                                                                    &.group {
+                                    
+                                                                        a {
+                                                                            color: #777777;
+                                                                            background: #fafafa;
+                                                                            font-weight: bold;
+                                                                            cursor: default;
+                                                                        }
+                                    
+                                                                        &:hover {
+                                                                            background: #fafafa;
+                                                                        }
+                                                                    }
+                                    */
+                                }
+                            }
+                        }
+
+                        a.sub {
+
+                            &:hover {
+                                .boxShadow(none); /* important */
+                                /*border-bottom: 1px solid #e6ecf4 !important;*/
+                            }
+
+                            span.arrow {
+                                display: block;
+                                width: 8px;
+                                height: 4px;
+                                background: @menuArrowDownImage;
+                                background-size: @menuArrowDownWidth @menuArrowDownHeight;
+                                position: absolute;
+                                right: 12px;
+                                top: 16px;
+                                font-size: 12px;
+                                background-repeat: no-repeat;
+                            }
+                        }
+
+                        &.hover {
+
+                            ul {
+                                display: block;
+                                z-index: @MENU_Z_INDEX;
+                                padding: 8px 20px;
+                            }
+
+                            a.sub {
+                                background: @menuHoverBackground;
+                                border-bottom: 1px solid @menuHoverBackground;
+                                .boxShadow(none);
+                                .topBorderRadius(@standardBorderRadius);
+
+                                &, .z-label, .arrow {
+                                    color: @menuHoverColor;
+                                    font-weight: bold;
+                                }
+
+                                span.arrow {
+                                    background: @menuHoverArrowDownImage;
+                                    background-size: @menuArrowDownWidth @menuArrowDownHeight;
+                                    right: 12px;
+                                    top: 16px;
+                                }
+                            }
+                        } 
+                    }
+
+                    &.active:hover a.sub {
+
+                        span.arrow {
+                            top: 12px;
+                        }
+                    } 
+
+                    &.home {
+                        height: 35px;
+                        width: 35px;
+                        margin-right: 10px;
+                        margin-top: 6px;
+
+                        a {
+                            text-indent: -9999px;
+                            height: @menuHomeAnchorWidth;
+                            width: @menuHomeAnchorHeight;
+                            display: block;
+                            padding: 0;
+                            .encodeThemeURL(background-image, @menuHomeImage);
+                            background-repeat: no-repeat;
+                            background-size: @menuHomeWidth @menuHomeHeight;
+                            background-position: center;
+                        }
+
+                        &.active, &:hover {
+                            transform: scale(1.1);
+
+                            a {
+                                .encodeThemeURL(background-image, @menuHomeImage);
+                                background-repeat: no-repeat;
+                                background-size: 16px 14px;
+                                background-position: center;
+                                border: none;
+                                .boxShadow(none);
+                            }
+                        }
+                    }
+                }
+            }
+
+            ul.services {
+                padding-left: 0px;
+
+                li.dropdown ul {
+                    width: 150px;
+                    left: 0px;
+                    .borderRadius(0 @standardBorderRadius @standardBorderRadius @standardBorderRadius); /* important */
+                }
+            }
+
+            div.user {
+                float: right;
+                position: relative;
+                height: 55px;
+                right: -6px;
+                z-index: @MENU_Z_INDEX;
+                .encodeThemeURL(background-image, @menuArrowDownImage);
+                background-repeat: no-repeat;
+                background-size: 8px 4px;
+                background-position-x: right;
+                background-position-y: 26px;
+
+                a.user_dropdown {
+                    display: inline-block;
+                    position: relative;
+                    padding: 10px 8px;
+                    min-width: 45px;
+                    max-width: 185px;
+                    width: 185px;
+                    text-decoration: none;
+                    overflow: hidden;
+                    cursor: pointer;
+
+                    span.photo {
+                        float: left;
+                        margin-right: 10px;
+
+                        img {
+                            border-radius: 20px;
+                        }
+                    }
+
+                    span.info {
+                        margin-top: 0;
+                        overflow: hidden;
+                        display: inline-block;
+                        width: 140px;
+
+                        span.name {
+                            color: #00346e;
+                            text-decoration: none;
+                            font-weight: bold;
+                            display: block;
+                            margin-bottom: 2px;
+                            font-size: 13px;
+
+                            &.length {
+                                &-0-18 {
+                                    font-size: 13px;
+                                    overflow: hidden;
+                                    white-space: nowrap;
+                                }
+
+                                &-18-21 {
+                                    font-size: 12px;
+                                    overflow: hidden;
+                                    white-space: nowrap;
+                                }
+
+                                &-21-24 {
+                                    font-size: 11px;
+                                    overflow: hidden;
+                                    white-space: nowrap;
+                                }
+
+                                &-over-24 {
+                                    font-size: 10px;
+                                    white-space: nowrap;
+                                }
+                            }
+
+                        }
+
+                        span {
+                            color: #00346e;
+                            font-size: 12px;
+                            display: block;
+
+                            &.length {
+                                &-0-18 {
+                                    font-size: 12px;
+                                    overflow: hidden;
+                                    white-space: nowrap;
+                                }
+
+                                &-18-21 {
+                                    font-size: 12px;
+                                    overflow: hidden;
+                                    white-space: nowrap;
+                                }
+
+                                &-21-24 {
+                                    font-size: 11px;
+                                    overflow: hidden;
+                                    white-space: nowrap;
+                                }
+
+                                &-over-24 {
+                                    font-size: 10px;
+                                    white-space: normal;
+                                }
+                            }
+                        }
+                    }
+
+                    span.dropdown {
+                        display: none;
+                        width: 10px;
+                        height: 10px;
+                        .encodeThemeURL(background-image, @menuArrowDownImage);
+                        background-repeat: no-repeat;
+                        background-size: 8px 4px;
+                        background-position-x: center;
+                        background-position-y: center;
+                    }
+                }
+
+                ul {
+                    width: 161px;
+                    display: none;
+                    position: absolute;
+                    /*top: 27px;*/
+                    right: 0;
+                    background: @menuHoverBackground;
+                    .borderRadius(@standardBorderRadius);
+                    padding: 0px 5px;
+                    .boxShadow(0px 1px 1px 0px rgba(0, 0, 0, 0.3));
+                    z-index: 1;
+
+                    li {
+                        list-style: none;
+                        border-bottom: 1px solid @submenuColor;
+                        float: none;
+
+                        &:last-child {
+                            border-bottom: none;
+                        }
+
+                        &.user-info {
+                            display: none;
+                            color: #ffffff;
+                            padding: 2px 0px 6px 0px;
+
+                            .info span {
+                                padding: 3px 0px;
+                                display: block;
+
+                                &.name {
+                                    font-size: 13px;
+                                    font-weight: bold;
+                                }
+
+                                &.company {
+                                    font-size: 11px;
+                                }
+                            }
+                        }
+
+                        a {
+                            font-size: 13px;
+                            text-transform: none;
+                            text-decoration: none;
+                            display: block;
+                            position: relative;
+                            color: @submenuColor;
+                            font-weight: bold;
+                            border: none;
+                            .boxShadow(none);
+                            padding: 8px 8px 8px 25px;
+                            margin-right: -5px;
+                            margin-left: 4px;
+                            transition: all 0.5s;
+                            background: @submenuBackgroundImage;
+                            background-size: 12px 12px;
+                            background-repeat: no-repeat;
+                            background-position-y: center;
+                            background-position-x: left;
+
+                            &.user-menu {
+                                &-notification {
+                                    .encodeThemeURL(background-image, @menuAlarmImage);
+                                }
+                                &-password {
+                                    .encodeThemeURL(background-image, @menuPasswordImage);
+                                    background-size: 10px 12px;
+                                    background-position-x: 1px;
+                                }
+                                &-switchuser-on {
+                                    .encodeThemeURL(background-image, @menuSwitchUserImage);
+                                }
+                                &-switchuser-off {
+                                    .encodeThemeURL(background-image, @menuSwitchUserImage);
+                                }
+                                &-profile {
+                                    .encodeThemeURL(background-image, @menuEditProfileImage);
+                                }
+                                &-logout {
+                                    .encodeThemeURL(background-image, @menuLogoutImage);
+                                    background-size: 10px 12px;
+                                    font-weight: bolder;
+                                }
+                            }
+
+                            &:hover {
+                                color: @submenuHoverColor;
+                                background-image: @submenuHoverBackgroundImage;
+                                margin-left: 4px;
+
+
+                                &.user-menu {
+                                    &-notification {
+                                        .encodeThemeURL(background-image, @menuAlarmActiveImage);
+                                    }
+                                    &-password {
+                                        .encodeThemeURL(background-image, @menuPasswordActiveImage);
+                                    }
+                                    &-switchuser-on {
+                                        .encodeThemeURL(background-image, @menuSwitchUserActiveImage);
+                                    }
+                                    &-switchuser-off {
+                                        .encodeThemeURL(background-image, @menuSwitchUserActiveImage);
+                                    }
+                                    &-profile {
+                                        .encodeThemeURL(background-image, @menuEditProfileActiveImage);
+                                    }
+                                    &-logout {
+                                        .encodeThemeURL(background-image, @menuLogoutActiveImage);
+                                        font-weight: bolder;
+                                    }
+                                }
+                            }
+                        }
+
+                        &.divider {
+                            display: none;
+                            height: 1px;
+                            margin: 9px 0px;
+                            padding: 0;
+                            overflow: hidden;
+                            background-color: #e5e5e5;
+                            border-bottom: 1px solid #ffffff;
+                        }
+                    }
+                }
+
+                &.hover ul {
+                    display: block;
+                    padding: 8px 20px;
+                    top: 55px;
+                }
+
+                &.short {
+
+                    a.user_dropdown {
+                        width: 45px;
+
+                        .info {
+                            display: none;
+                        }
+                    }
+
+                    ul {
+                        li.user-info {
+                            display: block;
+
+                            &.divider {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+
+            div.services {
+                float: right;
+
+                ul {
+                    display: none;
+                }
+
+                &:hover ul {
+                    display: block;
+                }
+            }
+
+            .menu-buttons {
+                float: right;
+                position: relative;
+                right: 15px;
+
+                ul {
+                    padding-left: 0px;
+                    margin-top: 5px;
+
+                    li {
+                        margin-right: 20px;
+
+                        &:last-child {
+                            margin-right: 0px;
+                        }
+
+                        a {
+                            width: 28px;
+                            height: 26px;
+                            background-color: @menuBackground;
+                            .whiteBackgroundGradient();
+                            background-repeat: no-repeat;
+                            .borderRadius(@standardBorderRadius);
+                            .boxShadow(1px 1px 4px 2px rgba(0, 0, 0, 0.2));
+                            transition: all .2s ease-in-out;
+
+                            &.menu-button-client-zone {
+                                .encodeThemeURL(background-image, @menuClientZoneImage);
+                                background-position-x: center;
+                                background-position-y: 11px;
+                                background-size: 24px;
+
+                                &:hover, &.menu-button-active {
+                                    background-color: @menuHoverBackground;
+                                    .encodeThemeURL(background-image, @menuClientZoneActiveImage);
+                                }
+                            }
+
+                            &.menu-button-settings {
+//                                 padding: 7px 6px;
+                                background: #f2f5f7;
+
+                                &:hover, &.hover, &.menu-button-active {
+                                    background: #00346e;
+                                    color: white;
+                                }
+
+                                .menu-button-settings-icon {
+                                    font-size: 26px;
+                                }
+                             }
+
+                            &.menu-button-messages {
+                                .encodeThemeURL(background-image, @menuMessagesImage);
+                                background-position-x: center;
+                                background-position-y: 11px;
+                                background-size: 24px;
+
+                                &:hover, &.menu-button-active {
+                                    background-color: @menuHoverBackground;
+                                    .encodeThemeURL(background-image, @menuMessagesActiveImage);
+                                }
+                            }
+
+                            &.menu-button-incidents {
+                                .encodeThemeURL(background-image, @menuTasksImage);
+                                background-position-x: center;
+                                background-position-y: 14px;
+                                background-size: 22px;
+
+                                &:hover, &.menu-button-active {
+                                    background-color: @menuHoverBackground;
+                                    .encodeThemeURL(background-image, @menuTasksActiveImage);
+                                }
+                            }
+
+                            .menu-button-label {
+                                display: none;
+                            }
+                            .menu-button-unread.z-label {
+                                display: block;
+                                padding: 3px 7px 3px 6px;
+                                position: absolute;
+                                top: -8px;
+                                right: -10px;
+                                background: @menuComponentBackground;
+                                .borderRadius(30px);
+                                color: @submenuColor;
+                                font-size: 11px;
+                                font-weight: bold;
+                                border: 2px solid #fff;
+                                text-align: center;
+                                text-shadow: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .menu-popup {
+
+        &-content {
+            background: @menuHoverBackground;
+            .borderRadius(@standardBorderRadius);
+            padding: 8px 20px;
+            margin-top: 20px;
+            width: 264px;
+
+            h2 {
+                font-size: 12px;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+
+            .btn-orion-blue {
+                border: 1px solid @submenuColor;
+                margin: 10px 0;
+
+                .btn-text {
+                    font-size: 10px;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                }
+
+                &:hover, &:focus, &:active, &.active, &.disabled, &[disabled] {
+                    background-color: @menuBackground;
+
+                    .btn-text {
+                        color: @menuColor;
+                    }
+                }
+            }
+        }
+
+        &-incidents {
+            ul li {
+                padding-left: 0;
+                list-style: none;
+                border-top: 1px solid @menuPopupTextBorderColor;
+                padding: 5px 0;
+
+                &:first-child {
+                    border-top: none;
+                }
+
+                a {
+                    font-size: 13px;
+                    color: @menuPopupTextColor;
+                    text-decoration: none;
+
+                    &:hover {
+                        color: @submenuHoverColor;
+                    }
+                }
+            }
+        }
+
+        &-messages {
+            div.news {
+                border-top: 1px solid @menuPopupTextBorderColor;
+                padding: 7px 0;
+
+                &:first-child {
+                    border-top: none;
+                }
+
+                .z-label {
+                    font-size: 13px;
+                    color: @menuPopupTextColor;
+                    transition: all 0.5s;
+
+                    &.name-read {
+                        font-weight: normal;
+                    }
+
+                    &.name-unread {
+                        font-weight: bold;
+                    }
+                }
+
+                &:hover .z-label {
+                    color: @submenuHoverColor;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1465px) and (min-width: 1180px)  {
+
+    div.header div.header_wrapper {
+        min-width: 1150px;
+    }
+}
+
+@media screen and (max-width: 1179px) {
+
+    div.header div.header_wrapper {
+        width: 98%;
+    }
+}
+
+@media screen and (max-width: 1220px) {
+
+    div.header div.header_wrapper ul.menu {
+        padding-left: 10px;
+
+        li .z-a .z-label {
+            font-size: 13px;
+        }
+    }
+}

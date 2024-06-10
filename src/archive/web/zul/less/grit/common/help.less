@@ -1,0 +1,154 @@
+@import "_variables.less";
+@import "../../_zkmixins.less";
+
+div.notificationContainer {
+    position: relative;
+    top: 20px;
+}
+
+.infoPopups {
+    text-align: left;
+}
+
+div.info_box {
+    color: #333;
+    /* border-bottom: 1px solid #fff; */
+    border-right: none;
+    margin-top: 20px;
+
+    p {
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+
+    h2 {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        color: #01346b;
+    }
+
+    .orangeH2 {
+        color: #ff7501;
+    }
+
+    .ulSk {
+        margin-left: 50px;
+    }
+
+    ul {
+        li {
+            margin-bottom: 10px;
+            padding: 3px 0 3px 30px;
+
+            &.email {
+                background:url('../../img/mail_icon.png') left 50% no-repeat;
+            }
+
+            &.phone {
+                background:url('../../img/phone_icon.png') 3px 50% no-repeat;
+            }
+
+            &.help {
+                background:url('../../img/help_icon.png') left 50% no-repeat;
+            }
+
+            &.cz {
+                background:url('../../img/cs.png') left 30% no-repeat;
+                font-weight: bold;
+            }
+
+            &.sk {
+                background:url('../../img/sk.png') left 30% no-repeat;
+                font-weight: bold;
+            }
+
+            a {
+                color: #333;  
+            }
+        }
+    } 
+}
+
+/* hinty z katalogu */
+div.help_wrapper {
+    clear: both;
+    width: 100%;
+    background: #e6ecf4;
+    margin-top: 50px;
+    .borderRadius(@standardBorderRadius);
+
+    div.help {
+        padding: 20px 20px 25px 100px;
+        background: url('../../img/ico_help_big.png') 20px 30px no-repeat;
+
+        p {
+            margin-top: 15px;
+            line-height: 1.5;
+            width: 70%;
+        }
+
+        ul li {
+            padding-left: 25px;
+            list-style: inside;
+        }
+    }
+}
+
+.z-window-modal div.help_wrapper {
+    margin-top: 15px;
+    
+    div.help p {
+        width: 90%;
+    }
+}
+
+.remote_support {
+
+    p {
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    .first_step {
+        margin-top: 10px;
+        float: left;
+        width: 50%;
+        text-align: center;
+
+        li {
+            margin-top: 10px;
+        }
+
+        li:nth-child(2) {
+            margin-top: 13px;
+        }
+    }
+
+    .second_step {
+        margin-top: 10px;
+        float: right;
+        width: 50%;
+        text-align: center;
+        font-size: 14px;
+
+        li {
+            margin-top: 10px;
+        }
+
+        img {
+            width: 90px;
+        }
+    }
+
+    .steps {
+        font-size: 20px;
+    }
+
+    .security_info {
+        display: inline-block;
+        margin-top: 10px;
+    }
+}

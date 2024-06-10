@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?page docType="html" id="mojelayoutPage" ?>
+<zk>
+    <window>
+        <zk xmlns="http://www.zkoss.org/2005/zul" xmlns:n="native" xmlns:h="xhtml">
+            <div id="headerContainer">
+                <a id="logoHref" href="#home" class="logo" tooltiptext="Homepage">
+                    <image id="logoImg" src="/img/logoOrion.png" style="max-height: 40px;"/>
+                </a>
+
+                <!-- MAIN MENU -->
+                <include mode="instant" src="menu.zul"/>
+            </div>
+        </zk>
+    </window>
+    <window apply="cz.ccv.orionweb.composers.general.OWDashboardComposer">
+        <div class="homepage">
+            <div class="content">
+                <vlayout>
+                    <hlayout sclass="home-top-container">
+                        <!-- Nova objednavka -->
+                        <div class="home-top-button big-button-new">
+                            <a id="newOrderCountBtn" vflex="1">
+                                <label class="big-button-title" value="${labels.incident.new_order.title}"/>
+                                <label class="big-button-count" id="newOrderCountLbl"/>
+                            </a>
+                        </div>
+                        <!-- Nepotvrzene objednavky -->
+                        <div class="home-top-button big-button-unconfirmed">
+                            <a id="unconfirmOrderCountBtn" vflex="1">
+                                <label class="big-button-title" value="${labels.incident.unconfirm_order.title}"/>
+                                <label class="big-button-count" id="unconfirmOrderCountLbl"/>
+                            </a>
+                        </div>
+                        <div hflex="1" class="home-top-search">
+                            <!-- Vyhledavani dle cisla dokladu -->
+                            <bandbox id="findMsgAcb" maxPageSize="10"
+                                          placeholder="${labels.diaries.findmsg.placeholder}"/>
+                            <n:i class="z-icon-search acb-fake-button"></n:i>
+                        </div>
+                    </hlayout>
+                    <hlayout class="home-half graph-statistics">
+                        <div hflex="1" vflex="1" id="canvasDiv" sclass="content-block">
+                            <combobox id="graphSelectCmb" class="block-title-combobox" disabled="true"/>
+                            <div class="switch-container right">
+                                <label id="switchFalse" value="${labels.db.menu.purchase}"
+                                       class="switch-label switch-label-left"/>
+                                <checkbox id="graphSwitchCheck" class="mold-switch"/>
+                                <label id="switchTrue" value="${labels.db.menu.sale}"
+                                       class="switch-label switch-label-right"/>
+                            </div>
+                            <!-- Graf prenesene doklady -->
+                            <div id="calbasDiv" class="calbas" width="100%" height="300px"></div>
+                        </div>
+
+                        <div hflex="1" vflex="1" sclass="content-block">
+                            <combobox id="partnerPeriodCmb" class="block-title-combobox date-selection"/>
+                            <combobox id="currencyCmb" class="block-title-combobox currency-selection"
+                                      tooltiptext="${labels.dashboard.currency.setting.title}"/>
+                            <!-- Tabulka se statistikami Partnerů -->
+                            <grid sclass="home-partners-grid" id="partnerGrid"
+                                  emptyMessage="${labels.dashboard.transferred.empty_message}">
+                                <columns/>
+                                <rows/>
+                                <foot/>
+                            </grid>
+                        </div>
+                    </hlayout>
+                    <!-- Vybraná aktualita -->
+                    <div class="content-block content-block-dark" id="newsSelectedDiv">
+                        <div class="selected-news-content selected-news-cell" hflex="1">
+                            <label class="selected-news-header" id="newsHeaderLbl"/>
+                            <label class="selected-news-text" id="newsContentLbl"/>
+                            <label class="selected-news-more" value="${labels.article.bar.btn.view_more}"
+                                   id="newsShowDetailLbl"/>
+                        </div>
+                        <div class="selected-news-cell" hflex="min">
+                            <a id="newsShowAllBtn" class="btn-orion-blue selected-news-button">
+                                <span xmlns="zul"></span>
+                                <label value="Všechny zprávy" class="btn-text"/>
+                                <span xmlns="zul" class="btn-helper"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <hlayout id="rogerTileHl" class="home-half">
+                        <div id="oipDiv" sclass="content-block oip-content-block" hflex="1" vflex="1">
+                            <!-- Dlaždice OIP -->
+                            <n:h3 class="coloured">
+                                <label id="oipTitle"/>
+                            </n:h3>
+                            <hlayout class="oip-graph-sum" id="oipSumFinancedLayout">
+                                <label hflex="min" class="oip-sum-text">${labels.dashboard.oip_financed_sum}</label>
+                                <label hflex="1" class="oip-sum-space">&#160;</label>
+                                <label hflex="min" class="oip-sum-text" id="oipTotalAmount"/>
+                            </hlayout>
+                            <div class="oip-graph-container">
+                                <div class="oip-graph-left" id="oipFinancedPart">
+                                    <label id="oipFinancedAmount"/>
+                                </div>
+                                <div class="oip-graph-right" id="oipPossiblePart">
+                                    <label id="oipPossibleAmount"/>
+                                </div>
+                            </div>
+                            <div class="oip-graph-legend">
+                                <div class="oip-legend-left">
+                                    <div class="oip-legend-icon">&#160;</div>
+                                    <label class="oip-legend-text">${labels.dashboard.oip_financed}</label>
+                                </div>
+                                <div class="oip-legend-right">
+                                    <div class="oip-legend-icon">&#160;</div>
+                                    <label class="oip-legend-text">${labels.dashboard.oip_can_be_financed}</label>
+                                </div>
+                                <div class="clear"/>
+                            </div>
+                        </div>
+                        <div sclass="content-block manual-services-container" hflex="1" vflex="1">
+                            <hlayout>
+                                <!-- Navody a dokumentace -->
+                                <div class="manual-container" hflex="1">
+                                    <n:h3>${labels.incident.manual_documentation}</n:h3>
+                                    <a id="moreManualLink" sclass="btn-orion-grey btn-orion-more" visible="false">
+                                        <span xmlns="zul"></span>
+                                        <label value="Více" class="btn-text"/>
+                                        <span xmlns="zul" class="btn-helper"></span>
+                                    </a>
+                                    <h:ul id="instructionLinksUl"/>
+                                </div>
+                                <!-- Funkce a sluzby -->
+                                <div class="services-container" hflex="1">
+                                    <n:h3>${labels.incident.function_service}</n:h3>
+                                    <a id="moreServicesLink" sclass="btn-orion-grey btn-orion-more" visible="false">
+                                        <span xmlns="zul"></span>
+                                        <label value="Více" class="btn-text"/>
+                                        <span xmlns="zul" class="btn-helper"></span>
+                                    </a>
+                                    <h:ul id="serviceLinksUl"/>
+                                </div>
+                            </hlayout>
+                        </div>
+                    </hlayout>
+                    <hlayout class="home-half">
+                        <div sclass="content-block manual-services-container" hflex="1" vflex="1" id="liquidatorDiv">
+                            <hlayout>
+                                <!-- Tabulka se statistikami Likvidatoru -->
+                                <div hflex="1">
+
+                                    <div class="right">
+                                        <hbox id="idsButtonBox">
+                                            <a id="prevMLikv" sclass="btn btn-orion btn-orion-grey btn-orion-back"
+                                               style="height:24px; margin-right:0px; margin-top: 5px;">
+                                                <span xmlns="zul"></span>
+                                                <label value="" class="btn-text"/>
+                                                <span xmlns="zul" class="btn-helper"></span>
+                                            </a>
+                                            <space/>
+                                            <a id="nextMLikv" sclass="btn btn-orion btn-orion-grey btn-orion-back"
+                                               style="height:24px; margin-right:0px;transform:rotate(180deg); margin-top: 5px;">
+                                                <span xmlns="zul"></span>
+                                                <label value="" class="btn-text"/>
+                                                <span xmlns="zul" class="btn-helper"></span>
+                                            </a>
+                                        </hbox>
+                                    </div>
+                                    <n:h3>${labels.liquidator.invoic.process}</n:h3>
+                                    <grid sclass="home-partners-grid" id="liquidatorGrid"
+                                          emptyMessage="${labels.dashboard.liquidator.empty_message}">
+                                        <columns/>
+                                        <rows/>
+                                        <foot/>
+                                    </grid>
+                                </div>
+                            </hlayout>
+                            <div id="liquidatorPopupDiv"/>
+
+                        </div>
+
+                    </hlayout>
+                </vlayout>
+            </div>
+            <div sclass="content-bottom-container">
+                <div sclass="content-bottom">
+                    <div sclass="content-bottom-gln">
+                        <label sclass="content-bottom-title" value="${labels.bottom.summary.gln}:"/>
+                        <label id="glnValueLbl" sclass="content-bottom-value" value="8594166880009"/>
+                    </div>
+                    <div sclass="content-bottom-transfer">
+                        <label sclass="content-bottom-title" value="${labels.bottom.summary.last_transfer}:"/>
+                        <label id="transferValueLbl" sclass="content-bottom-value" value="13.9.2017 14:34"/>
+                    </div>
+                    <div sclass="content-bottom-admin">
+                        <label sclass="content-bottom-title" value="${labels.bottom.summary.admin}:"/>
+                        <label id="adminValueLbl" sclass="content-bottom-value" value="Václav Kameníček"/>
+                    </div>
+                    <div sclass="content-bottom-tariff">
+                        <label sclass="content-bottom-title" value="${labels.bottom.summary.tarif}:"/>
+                        <label id="tariffValueLbl" sclass="content-bottom-value" value="6 333 / 15 000 kB"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </window>
+</zk>

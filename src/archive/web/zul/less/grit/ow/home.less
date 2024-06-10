@@ -1,0 +1,451 @@
+@import "_variables.less";
+@import "../_functions.less";
+
+div.wrapper div.content_wrapper .homepage {
+
+    .block-title-combobox {
+        .boxShadow(none);
+        border: none;
+        background: transparent;
+        margin-bottom: 5px;
+        width: 260px;
+
+        .z-combobox-button {
+            color: @menuColor;
+        }
+
+        input {
+            background: transparent !important;
+            color: @menuColor !important;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 15px;
+        }
+
+        &.date-selection {
+            width: 180px;
+
+            input {
+                background-image: url('../../img/facelift/calendar.png') !important;
+                background-repeat: no-repeat !important;
+                background-size: 14px !important;
+                background-position-y: center !important;
+                padding-left: 20px;
+            }
+        }
+
+        &.currency-selection {
+            float: right;
+            width: 65px;
+        }
+
+        &.z-combobox-disabled {
+            opacity: 1;
+
+            input {
+                cursor: initial;
+            }
+
+            .z-combobox-button {
+                display: none;
+            }
+        }
+    }
+
+    .home-partners-settings {
+        color: #999;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        font-size: 16px;
+        cursor: pointer;
+        float: right;
+
+        &:hover {
+            color: @submenuHoverColor;
+        }
+    }
+
+    .home-partners-grid {
+
+        .z-grid-header, .z-column, .z-grid-footer .z-footer {
+            background: transparent;
+        }
+
+        .z-grid-body {
+            margin: 0;
+        }
+
+        .z-column .z-column-content, .z-footer-content {
+
+            &, & .z-label {
+                color: #333333;
+                font-size: 13px;
+                font-weight: bold;
+                text-transform: none;
+            }
+        }
+
+        .z-rows .z-row { 
+
+            .z-row-inner {
+                border-bottom: 1px solid #999999;
+            }
+
+            &.home-partners-other .z-row-inner {
+                border-bottom: none;
+                position: relative;
+                top: 2px;
+            }
+        }
+
+        .z-row-content {
+            padding: 0 5px;
+            line-height: 28px;
+
+            &, &:hover, & .z-label, &:hover .z-label {
+                color: #333333;
+                font-size: 13px;
+            }
+        }
+
+        &-sum .z-row-content {
+            &, & .z-label {
+                font-weight: bold;
+            }
+        }
+
+        .z-grid-body {
+            height: 235px;
+            overflow-y: auto !important;
+
+            .z-grid-emptybody td {
+                padding: 100px 0;
+            }
+        }
+
+        .z-grid-footer {
+            border-top: 1px solid #999999;
+            line-height: 28px;
+        }
+
+        table td, table th {
+            &:first-child {
+                &, & > div {
+                    padding-left: 0;
+                }
+            }
+
+            &:last-child {
+                &, & > div {
+                    padding-right: 0;
+                }
+            }
+        }
+
+        .dashboard-amount-column {
+            white-space: nowrap;
+        }
+    }
+
+    .home-top-container {
+
+        .home-top-button {
+
+            &.big-button {
+
+                &-new {
+                    .orangeBackgroundGradient();
+
+                    a {
+                        background-image: url('../../img/facelift/orders_a.png');
+                        background-size: 31px;
+                        background-position-y: center;
+                        background-position-x: 14px;
+                        background-repeat: no-repeat;
+
+                        .big-button-title, .big-button-count {
+                            color: @btnOrionColor;
+                        }
+                    }
+                }
+
+                &-unconfirmed {
+                    .whiteBackgroundGradient();
+
+                    a {
+                        background-image: url('../../img/facelift/orders_b.png');
+                        background-size: 31px;
+                        background-position-y: center;
+                        background-position-x: 14px;
+                        background-repeat: no-repeat;
+
+                        .big-button-title, big-button-count {
+                            color: @menuColor;
+                        }
+                    }
+                }
+            }
+        }
+
+        .home-top-search {
+            white-space: nowrap;
+
+            .find-msg-acb input {
+                border-right: none;
+                height: 35px;
+            }
+
+            .acb-fake-button {
+                position: relative;
+                right: 20px;
+                top: 2px;
+                color: #aaaaaa;
+            }
+        }
+    }
+
+    .oip-content-block {
+        cursor: pointer;
+        .boxShadow(1px 1px 4px 2px rgba(0, 0, 0, 0.2));
+
+        &:hover {
+            transform: scale(1.01);
+            transition: all 0.5s;
+        }
+
+        .oip-graph-sum {
+            padding: 15px 0;
+
+            .z-hlayout-inner {
+                padding-left: 0px;
+            }
+
+            .z-label {
+                font-size: 14px;
+                color: @menuColor;
+                font-weight: normal;
+            }
+
+            .oip-sum-text {
+                display: inline-block;
+            }
+
+            .oip-sum-space {
+                height: 13px;
+                display: inline-block;
+                border-bottom: 2px dotted @menuColor;
+            }
+        }
+
+        .oip-graph-container {
+            height: 40px;
+            border-radius: 5px;
+
+            .z-label {
+                font-size: 14px;
+                color: @menuColor;
+                font-weight: normal;
+                line-height: 40px;
+            }
+
+            .oip-graph-left {
+                background: @menuHoverBackground;
+                height: 100%;
+                display: inline-block;
+                float: left;
+                text-align: left;
+                padding-left: 20px;
+                border-radius: 5px 0 0 5px;
+                width: 60%;
+            }
+
+            .oip-graph-right {
+                background: #249547;
+                height: 100%;
+                display: inline-block;
+                float: right;
+                text-align: right;
+                padding-right: 20px;
+                border-radius: 0 5px 5px 0;
+                width: 40%;
+            }
+
+            .oip-graph-left, .oip-graph-right {
+
+                .z-label {
+                    font-size: 12px;
+                    color: white;
+                    font-weight: bold;
+                    line-height: 40px;
+                }
+
+                &.oip-graph-full {
+                    border-radius: 5px;
+                }
+
+                &.oip-graph-null {
+                    display: none;
+                }
+            }
+        }
+
+        .oip-graph-legend {
+            padding-top: 15px;
+
+            .oip-legend-icon {
+                height: 15px;
+                width: 15px;
+                margin-right: 10px;
+                border-radius: 5px;
+                display: inline-block;
+            }
+
+            .oip-legend-left {
+                width: 50%;
+                height: 100%;
+                float: left;
+                text-align: left;
+                display: inline-block;
+
+                .oip-legend-icon {
+                    background-color: @menuHoverBackground;
+                }
+            }
+
+            .oip-legend-right {
+                width: 50%;
+                height: 100%;
+                float: right;
+                text-align: right;
+                display: inline-block;
+
+                .oip-legend-icon {
+                    background-color: #249547;
+                }
+            } 
+
+            .oip-legend-text {
+                font-size: 13px;
+                color: @menuColor;
+            }
+        }
+    }
+
+}
+
+.home-partners-popup {
+    background: @menuHoverBackground;
+    .borderRadius(@standardBorderRadius);
+    padding: 8px 20px;
+    width: 80px;
+
+    ul li {
+        padding-left: 0;
+        list-style: none;
+        border-top: 1px solid #305888;
+        padding: 5px 0;
+        text-align: center;
+
+        &:first-child {
+            border-top: none;
+        }
+
+        &.currency-selected a {
+            font-weight: bold;
+        }
+
+        a {
+            font-size: 13px;
+            color: #bfcee0;
+            text-decoration: none;
+
+            &:hover {
+                color: @submenuHoverColor;
+            }
+        }
+    }
+}
+
+/* styl pro prepinac zalozeny na checkboxu */
+.switch-container { 
+    position: relative;
+    bottom: 3px;
+
+    &:hover .z-checkbox.mold-switch .z-checkbox-content {
+        background-color: #999999;
+    }
+
+    .switch-label {
+        color: #666666;
+        text-transform: uppercase;
+        font-weight: bold;
+        padding: 5px;
+        cursor: pointer;
+
+        &.active, &.active:hover {
+            color: @menuColor;
+        }
+        
+        &:hover {
+            color: @submenuHoverColor;
+        }
+    }
+
+    .z-checkbox.mold-switch {
+
+        height: 20px;
+        width: 40px;
+        position: relative;
+        display: inline-block;
+        top: 5px;
+
+        input {
+            display: none;
+
+            &:checked + .z-checkbox-content:before {
+                -webkit-transform: translateX(20px);
+                -ms-transform: translateX(20px);
+                transform: translateX(20px);
+            }
+        }
+
+        .z-checkbox-content, .z-checkbox-content:empty {
+            display: inline-block;
+        }
+
+        .z-checkbox-content {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            -webkit-transition: .4s;
+            transition: .4s;
+            width: 100%;
+            background-color: #666666;
+            width: 40px;
+            height: 20px;
+            border-radius: 20px;
+            margin: 0;
+        }
+
+        &:hover .z-checkbox-content {
+            background-color: #999999;
+        }
+
+        .z-checkbox-content::before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 2px;
+            bottom: 2px;
+            background-color: #fff;
+            -webkit-transition: .4s;
+            transition: .4s;
+            border-radius: 50%;
+        }
+    }
+}

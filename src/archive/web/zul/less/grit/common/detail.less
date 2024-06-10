@@ -1,0 +1,82 @@
+@import "_variables.less";
+@import "../_functions.less";
+
+div.detail-info-grid {
+    .borderRadius(@standardBorderRadius);
+    background: @bodyBackground;
+    padding: @standardInnerDivPadding 0;
+    margin-bottom: 25px;
+
+    .z-cell {
+        padding: 6px 20px !important;
+        background: @bodyBackground;
+        word-wrap: break-word;
+        vertical-align: top;
+
+        .z-cell {
+            padding: 0px !important;
+        }
+
+        .z-label {
+            font-size: 13px;
+        }
+
+        &.detail-info-status {
+            border-radius: 10px 0 0 10px;
+
+            .z-label {
+                color: #FFFFFF;
+                font-weight: bold;
+            }
+
+            &.green_row {
+                background: @statusGreen;
+            }
+
+            &.red_row {
+                background: @statusRed;
+            }
+
+            &.orange_row {
+                background: @statusOrange;
+            }
+
+            &.yellow_row {
+                background: @statusYellow;
+
+                .z-label {
+                    color: #000000;
+                }
+            }
+
+            &.blue_row {
+                background: @statusBlue;
+            }
+
+            &.gray_row {
+                background: @statusGray;
+            }
+
+            &.none_row .z-label {
+                color: #000000;
+            }
+        }
+
+        &.status {
+            background: #ceffb9 !important;
+        }
+
+        &.right-border {
+            border-right: 1px solid #ddd;
+        }
+    }
+
+    .action-btn {
+        top: -2px;
+        margin-left: 5px;
+    }
+}
+
+.preview-modal {
+    padding: 20px;
+}
