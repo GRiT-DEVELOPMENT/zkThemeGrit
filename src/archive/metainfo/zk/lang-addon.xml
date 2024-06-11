@@ -7,4 +7,6 @@
 		<version-class>org.zkoss.theme.zk10theme.Version</version-class>
 		<version-uid>1.0.0</version-uid>
 	</version>
+
+	<stylesheet href="~./zk10theme/zul/css/grit.css.dsp" type="text/css"/>
 </language-addon>
